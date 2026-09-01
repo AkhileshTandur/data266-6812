@@ -1,0 +1,50 @@
+Checked on 2026-08-31 from the project workspace.
+
+Local Python command used:
+py -c "load neural_networks.ipynb JSON and execute each code cell from Template_export"
+
+Result:
+- neural_networks.ipynb executed successfully through the PyTorch experiment with SID4=6812.
+- The notebook now includes the autoregressive-model answer required by HW1.
+- Dataset loaded from ../diabetes.csv.
+- Data shape: 759 rows, 8 features, 1 binary target.
+- Correct personal parameters:
+  - SID4=6812, SEED=6812, SLICE=812, HP_ID=2, CLS_A=2, CLS_B=9.
+- PyTorch test accuracy runs:
+  - Baseline seeds 6812, 6813, 6814: 0.7632, 0.7281, 0.7105.
+  - Modified HP2 seeds 6812, 6813, 6814: 0.7719, 0.7544, 0.7544.
+- PyTorch summary:
+  - Baseline mean 0.7339, std 0.0268.
+  - Modified HP2 mean 0.7602, std 0.0101.
+- TensorFlow:
+  - TensorFlow version 2.20.0 from executed Colab notebook.
+  - Baseline seeds 6812, 6813, 6814: 0.7018, 0.7456, 0.7281.
+  - Modified HP2 seeds 6812, 6813, 6814: 0.7544, 0.7544, 0.7632.
+  - Baseline mean 0.7251, std 0.0221.
+  - Modified HP2 mean 0.7573, std 0.0051.
+
+Environment note:
+- Diabetes PyTorch checks were also run locally, but the submitted TensorFlow and CUDA outputs came from Colab Pro A100.
+
+CUDA run from Colab Pro A100:
+Timestamp from nvidia-smi output in cuda.ipynb: Tue Sep 1 06:25:04 2026
+$ nvcc -O3 -arch=sm_80 matmul_cuda.cu -o matmul_cuda
+$ ./matmul_cuda
+Matrix size,CPU (ms),GPU kernel (ms),H2D+D2H (ms),Speedup,Check
+256,21.643,0.121,0.279,54.020,max error 0.000015
+1024,3305.822,0.903,3.013,844.163,max error 0.000092
+4096,657903.697,67.836,42.927,5939.709,max error 0.001221
+
+Profiler attempt:
+$ nsys profile --stats=true ./matmul_cuda
+/bin/sh: 1: nsys: not found
+
+$ ncu ./matmul_cuda
+Profiler used: ncu
+
+Nsight Compute connected to the process and profiled matmul_kernel for all three matrix sizes. It reported:
+- 256: grid (16, 16, 1), block (16, 16, 1), Duration 28.80 us, Achieved Occupancy 29.33%.
+- 1024: grid (64, 64, 1), block (16, 16, 1), Duration 895.10 us, Achieved Occupancy 93.00%.
+- 4096: grid (256, 256, 1), block (16, 16, 1), Duration 67.76 ms, Achieved Occupancy 99.51%.
+
+Note: the timing rows printed during the ncu run are slower because Nsight Compute profiles the kernel with multiple replay passes. The METRICS.md timing table uses the normal non-profiler ./matmul_cuda run.
