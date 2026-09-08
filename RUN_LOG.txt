@@ -1,0 +1,64 @@
+HW2 Run Log
+===========
+
+Personal Parameters
+-------------------
+SID4  = 6812
+SEED  = 6812
+SLICE = 812
+HP_ID = 2
+CLS_A = 2
+CLS_B = 9
+
+What I Ran
+----------
+I ran the main notebook:
+
+homework2_solution.ipynb
+
+I used Google Colab for the notebook run. The first cell installed the required packages:
+
+!pip -q install gensim datasets langchain langchain-community langchain-core langchain-huggingface langchain-text-splitters sentence-transformers faiss-cpu transformers torch scikit-learn matplotlib pandas numpy wikipedia tqdm
+
+Install Warning
+---------------
+Colab showed this warning:
+
+google-colab 1.0.0 requires requests==2.32.4, but requests 2.34.2 was installed.
+
+This was only a package warning. It did not stop the notebook.
+
+Errors I Fixed
+--------------
+The first IMDB dataset line used:
+
+load_dataset("imdb")
+
+That failed in Colab with a Hugging Face URI error, so I changed it to:
+
+load_dataset("stanfordnlp/imdb")
+
+I also got this error when a later cell was run before the previous Word2Vec cells:
+
+NameError: name 'original_neighbors' is not defined
+
+I fixed that by adding a clearer check before the t-SNE visualization cell.
+
+The Wikipedia loader also caused a JSON decode error, so I changed the RAG document loader to try Wikipedia first and use fallback movie passages if the API response fails.
+
+Verification
+------------
+After the fixes, I checked the saved notebook output:
+
+code_cells = 17
+executed_code_cells = 17
+display_or_result_outputs = 44
+errors = 0
+
+Important RAG result:
+
+Retrieval Success Rate = 1.00 (5/5)
+
+Final Notes
+-----------
+The executed notebook includes the Word2Vec tables, t-SNE plot, RAG retrieved chunks and answers, chunking comparison, manual retrieval table, RAG failure analysis, and training optimization table.
