@@ -11,53 +11,34 @@
 
 ## How I Used AI
 
-I used ChatGPT/Codex to help me set up the notebook structure and write parts of the code for the Word2Vec fine-tuning, the LangChain RAG pipeline, and the PyTorch training optimization experiments. I did not just submit the first version it gave me. I ran the notebook, checked the errors, and fixed the parts that failed.
+I used ChatGPT/Codex while working on this assignment. It helped me set up the notebook sections, write the LangChain code for running the prompts, and draft the PyTorch self-attention model. I did not just submit the first version. I ran the notebook in Colab, checked the outputs, and changed parts that did not work well.
 
-The parts I mainly checked myself were the Colab errors, the reruns, the output tables, and whether the final notebook matched the assignment requirements.
+The parts I checked myself were the prompt outputs, the training losses, the attention heatmaps, and the causal mask check.
 
 ## One Thing AI Got Wrong
 
-One wrong thing in the first version was the IMDB dataset loading line:
+The first version of the prompt section expected an `OPENAI_API_KEY`. I did not want to use paid API calls, so that was not a good setup for me.
 
-```python
-imdb = load_dataset("imdb")
-```
-
-When I ran it in Colab, it failed with this error:
-
-```text
-HfUriError: Invalid HF URI 'hf://datasets/imdb@e6281661ce1c48d982bc483cf8a173c1bbeb5d31/.huggingface.yaml'.
-Repository id must be 'namespace/name', got 'imdb'.
-```
-
-There was also another issue when I ran a later cell before the earlier Word2Vec cells had finished:
-
-```text
-NameError: name 'original_neighbors' is not defined
-```
+After that, I tried a local Hugging Face model, `flan-t5-base`. It ran, but some of the answers were bad. For example, it gave an incorrect answer for the jacket discount problem and made mistakes on simple arithmetic.
 
 ## How I Found It
 
-I found these problems by running the notebook in Colab. The dataset error happened at the IMDB loading cell, so the notebook could not continue. The `original_neighbors` error happened because the t-SNE visualization depends on variables created in earlier Word2Vec cells.
+I found the problem by reading the actual prompt outputs after the notebook ran. The code itself was running, but the answers were not reliable enough for the assignment.
+
+I also hit this Colab error with a Hugging Face pipeline version:
+
+```text
+KeyError: Unknown task text2text-generation
+```
 
 ## What I Changed
 
-I changed the IMDB loading line to:
+I changed the prompt section to use `Qwen/Qwen2.5-0.5B-Instruct` locally with Hugging Face, and I wrapped the generation function with LangChain. This avoided the OpenAI API key issue and gave better prompt outputs.
 
-```python
-imdb = load_dataset("stanfordnlp/imdb")
-```
-
-That fixed the Hugging Face dataset problem because the dataset name now uses the correct namespace.
-
-I also added a check before the t-SNE code so that if the required neighbor tables are missing, the notebook gives a clear message instead of a confusing `NameError`.
-
-For the RAG part, the Wikipedia/API call gave a JSON error in Colab, so I changed the loader to try Wikipedia first and then use fallback movie passages if the API fails. This keeps the notebook running top to bottom instead of stopping because of a temporary API response problem.
-
-After the fixes, the saved notebook had:
+For the attention part, I checked the causal mask by printing the largest attention value above the diagonal. It was:
 
 ```text
-code_cells = 17
-executed_code_cells = 17
-errors = 0
+0.0
 ```
+
+That tells me the masked model was not attending to future tokens.

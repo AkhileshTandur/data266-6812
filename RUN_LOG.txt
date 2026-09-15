@@ -1,4 +1,4 @@
-HW2 Run Log
+HW3 Run Log
 ===========
 
 Personal Parameters
@@ -12,53 +12,41 @@ CLS_B = 9
 
 What I Ran
 ----------
-I ran the main notebook:
+I ran:
 
-homework2_solution.ipynb
+homework3_solution.ipynb
 
-I used Google Colab for the notebook run. The first cell installed the required packages:
+I ran it in Google Colab with GPU enabled. The install command was:
 
-!pip -q install gensim datasets langchain langchain-community langchain-core langchain-huggingface langchain-text-splitters sentence-transformers faiss-cpu transformers torch scikit-learn matplotlib pandas numpy wikipedia tqdm
+```python
+!pip -q install langchain transformers accelerate sentencepiece seaborn pandas matplotlib
+```
 
-Install Warning
----------------
-Colab showed this warning:
-
-google-colab 1.0.0 requires requests==2.32.4, but requests 2.34.2 was installed.
-
-This was only a package warning. It did not stop the notebook.
-
-Errors I Fixed
---------------
-The first IMDB dataset line used:
-
-load_dataset("imdb")
-
-That failed in Colab with a Hugging Face URI error, so I changed it to:
-
-load_dataset("stanfordnlp/imdb")
-
-I also got this error when a later cell was run before the previous Word2Vec cells:
-
-NameError: name 'original_neighbors' is not defined
-
-I fixed that by adding a clearer check before the t-SNE visualization cell.
-
-The Wikipedia loader also caused a JSON decode error, so I changed the RAG document loader to try Wikipedia first and use fallback movie passages if the API response fails.
-
-Verification
-------------
-After the fixes, I checked the saved notebook output:
-
-code_cells = 17
-executed_code_cells = 17
-display_or_result_outputs = 44
-errors = 0
-
-Important RAG result:
-
-Retrieval Success Rate = 1.00 (5/5)
-
-Final Notes
+Run Results
 -----------
-The executed notebook includes the Word2Vec tables, t-SNE plot, RAG retrieved chunks and answers, chunking comparison, manual retrieval table, RAG failure analysis, and training optimization table.
+
+- Code cells executed: 13/13
+- Saved notebook errors: 0
+- Device used: cuda
+- Prompt engineering prompts completed: 12
+- Number of word tokens: 46
+- Vocabulary size: 39
+- Final unmasked loss: 0.6318
+- Final causal masked loss: 0.9518
+- Maximum attention above the diagonal in the masked model: 0.0
+
+Errors / Changes
+----------------
+At first, the prompt section expected an OpenAI API key. I changed that because I did not want to pay for API calls for this homework.
+
+I also tried a Hugging Face pipeline version and got:
+
+```text
+KeyError: Unknown task text2text-generation
+```
+
+I fixed this by loading the Hugging Face tokenizer and model directly, then wrapping my generation function with LangChain.
+
+Checks
+------
+The notebook ran all cells without saved errors. The attention part printed attention matrices with shape `(46, 46)`. The masked model had `0.0` attention above the diagonal, which is what I expected for causal masking.

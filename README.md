@@ -1,38 +1,27 @@
-# Homework 2
+# Homework 3
 
-This workspace contains a complete, runnable solution notebook for the Homework 2 assignment:
+This is my HW3 folder. The main file is `homework3_solution.ipynb`.
 
-- embedding-based transfer learning with `word2vec-google-news-300` on IMDB reviews
-- a LangChain RAG pipeline over 10 Wikipedia movie pages
-- controlled training optimization experiments
+In this notebook I did two main things. First, I tested the required prompt engineering styles using LangChain and a local Hugging Face model. I used a local model because I did not want to use paid OpenAI API calls for this assignment. Second, I built single-head self-attention from scratch in PyTorch and compared the unmasked and causal masked attention heatmaps.
 
-## Files
+The notebook uses my standing parameters:
 
-- `homework2_solution.ipynb`: main notebook submission
-- `requirements.txt`: Python dependencies
-- `RUN_LOG.txt`: run and verification log
-- `METRICS.md`: metric summary
-- `AI_USE.md`: required AI-use appendix
+- SID4 = 6812
+- SEED = 6812
+- SLICE = 812
+- HP_ID = 2
+- CLS_A = 2
+- CLS_B = 9
 
-## Run
+Files in this folder:
 
-Recommended: open `homework2_solution.ipynb` in Google Colab or Jupyter, then run all cells.
+- `homework3_solution.ipynb`: main notebook
+- `METRICS.md`: the main results I recorded
+- `RUN_LOG.txt`: notes from running/debugging the notebook
+- `AI_USE.md`: required AI-use write-up
 
-Local setup:
-
-```bash
-pip install -r requirements.txt
-jupyter notebook homework2_solution.ipynb
-```
-
-Colab install cell:
+I ran the notebook in Google Colab with GPU enabled. The install cell I used was:
 
 ```python
-!pip -q install gensim datasets langchain langchain-community langchain-core langchain-huggingface langchain-text-splitters sentence-transformers faiss-cpu transformers torch scikit-learn matplotlib pandas numpy wikipedia tqdm
+!pip -q install langchain transformers accelerate sentencepiece seaborn pandas matplotlib
 ```
-
-Notes:
-
-- The Word2Vec model is large and downloads through `gensim.downloader`.
-- The notebook uses open local Hugging Face models for the RAG LLM by default, so no API key is required.
-- GPU-specific memory measurements are reported only when CUDA is available.

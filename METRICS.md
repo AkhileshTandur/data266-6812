@@ -9,58 +9,42 @@
 - CLS_A = 2
 - CLS_B = 9
 
-## Summary
+## Prompt Engineering
 
-My main submitted file is `homework2_solution.ipynb`. I ran it in Colab and kept the outputs in the notebook. I also checked the saved notebook afterward. It had 17 executed code cells and 0 saved errors.
+I ran two prompt examples for each required technique. The prompts were called from code using LangChain, not screenshots.
 
-## Word2Vec / IMDB
+| Technique | Number of examples |
+|---|---:|
+| Zero-Shot | 2 |
+| Few-Shot | 2 |
+| Chain-of-Thought | 2 |
+| Zero-Shot CoT | 2 |
+| Meta-Prompting | 2 |
+| Tree of Thoughts | 2 |
 
-The notebook includes these results:
+The prompt outputs are saved in `prompt_engineering_outputs.csv`.
 
-| Required output | Where it is shown |
-|---|---|
-| Original top-3 neighbors for `cast`, `score`, `plot`, `screen`, `review` | Original Word2Vec neighbor table |
-| Fine-tuned top-3 neighbors for the same words | Fine-tuned neighbor table |
-| Before/after comparison | Combined neighbor comparison table |
-| Original vs fine-tuned cosine for each word | Cosine shift table |
-| Most shifted and least shifted word | Printed below the cosine table |
-| 2D visualization | t-SNE plot for `plot` |
+One thing I noticed is that zero-shot prompting can sound confident even when the answer is not fully supported. For example, the tulip logic question is a good example to discuss because the model's answer should be checked carefully instead of accepted automatically.
 
-## RAG
+## Self-Attention Results
 
 | Item | Value |
 |---|---:|
-| Movie documents | 10 |
-| Main chunk size | 500 |
-| Main overlap | 50 |
-| Retrieved chunks per question | 3 |
-| Questions | 5 |
-| Questions rerun with changed chunking | 2 |
-| Alternate chunk size | 800 |
-| Alternate overlap | 100 |
-| Retrieval Success Rate | 5/5 = 1.00 |
+| Number of word tokens | 46 |
+| Vocabulary size | 39 |
+| Final unmasked training loss | 0.6318 |
+| Final causal masked training loss | 0.9518 |
+| Maximum masked attention above diagonal | 0.0 |
 
-The notebook also shows the retrieved chunks and final answer for each question. For the manual retrieval check, I recorded whether the correct answer passage appeared in the top 3 chunks and the rank of the first relevant chunk.
+The notebook also produces these files:
 
-## RAG Failures
-
-I discussed two failure types:
-
-| Failure type | What happened |
+| Output | File |
 |---|---|
-| Chunk ranking sensitivity | Changing chunk size/overlap can change which chunks are retrieved and how the answer is written. |
-| Answer phrase split across chunks | If the answer and clue words are separated by chunk boundaries, the retriever may return only partial evidence. |
+| Unmasked attention heatmap | `unmasked_attention_heatmap.png` |
+| Causal masked attention heatmap | `masked_attention_heatmap.png` |
+| Training loss plot | `attention_training_loss.png` |
+| Findings draft | `HW3_findings_draft.pdf` |
 
-## Training Optimization Experiments
+## Short Finding
 
-The notebook includes small controlled experiments for:
-
-| Technique | Metrics reported |
-|---|---|
-| Tensor creation CPU vs GPU | Time, GPU memory if available, final loss |
-| Weight initialization | Time, GPU memory if available, final loss |
-| Activation checkpointing | Time, GPU memory if available, final loss |
-| Gradient accumulation | Time, GPU memory if available, final loss |
-| Mixed precision training | Time, GPU memory if available, final loss |
-
-The exact numeric values are in the executed notebook output table.
+The unmasked model can attend to any token in the sequence. The causal masked model cannot look ahead, and the heatmap shows this because the upper triangle is blocked. The printed check also confirms it, since the largest attention value above the diagonal is `0.0`.
