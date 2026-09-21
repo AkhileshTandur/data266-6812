@@ -1,27 +1,28 @@
-# Homework 3
+# Homework 4
 
-This is my HW3 folder. The main file is `homework3_solution.ipynb`.
+Main notebook: `homework4_solution.ipynb`
 
-In this notebook I did two main things. First, I tested the required prompt engineering styles using LangChain and a local Hugging Face model. I used a local model because I did not want to use paid OpenAI API calls for this assignment. Second, I built single-head self-attention from scratch in PyTorch and compared the unmasked and causal masked attention heatmaps.
+This notebook is for the mini GPT assignment. I built a small decoder-only model in PyTorch and trained it on character-level text. The notebook includes the data setup, the model code, training, text generation, and a short comparison of the decoding methods.
 
-The notebook uses my standing parameters:
+What is included:
 
-- SID4 = 6812
-- SEED = 6812
-- SLICE = 812
-- HP_ID = 2
-- CLS_A = 2
-- CLS_B = 9
+- character-level tokenizer
+- sequence length 128 dataset
+- manual multi-head masked self-attention
+- 2 decoder blocks
+- Adam training for 5 epochs
+- greedy decoding
+- temperature sampling
+- top-k sampling
+- findings PDF
 
-Files in this folder:
+Files:
 
-- `homework3_solution.ipynb`: main notebook
-- `METRICS.md`: the main results I recorded
-- `RUN_LOG.txt`: notes from running/debugging the notebook
-- `AI_USE.md`: required AI-use write-up
+- `homework4_solution.ipynb` - main notebook
+- `HW4_findings.pdf` - findings write-up
+- `hw4_decoding_samples.txt` - generated text samples
+- `hw4_training_loss.png` - loss plot from training
 
-I ran the notebook in Google Colab with GPU enabled. The install cell I used was:
+If `shakespeare.txt` is in the folder, the notebook uses it. If it is not there, the notebook makes a small local text file so the code can still run without uploading or downloading anything.
 
-```python
-!pip -q install langchain transformers accelerate sentencepiece seaborn pandas matplotlib
-```
+

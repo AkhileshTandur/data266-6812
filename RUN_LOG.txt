@@ -1,52 +1,24 @@
-HW3 Run Log
+HW4 Run Log
 ===========
 
-Personal Parameters
--------------------
-SID4  = 6812
-SEED  = 6812
-SLICE = 812
-HP_ID = 2
-CLS_A = 2
-CLS_B = 9
+I ran the notebook for the mini GPT assignment and checked that the main pieces run in order.
 
-What I Ran
-----------
-I ran:
+The notebook does the following:
 
-homework3_solution.ipynb
+- reads `shakespeare.txt` if it is available
+- creates a small local fallback text file if the dataset is missing
+- builds a character vocabulary
+- prints the vocabulary size
+- makes input and target windows with sequence length 128
+- prints two decoded input/target examples
+- builds a manual multi-head causal attention layer
+- uses 4 attention heads
+- stacks 2 decoder blocks
+- trains the model for 5 epochs with Adam
+- saves the training loss plot
+- generates text from `ROMEO:`
+- compares greedy, temperature, and top-k decoding
+- saves the generated samples and findings PDF
 
-I ran it in Google Colab with GPU enabled. The install command was:
+The model is small, so the generated text is not perfect. The main goal here was to show the Transformer parts working from scratch and compare the decoding choices.
 
-```python
-!pip -q install langchain transformers accelerate sentencepiece seaborn pandas matplotlib
-```
-
-Run Results
------------
-
-- Code cells executed: 13/13
-- Saved notebook errors: 0
-- Device used: cuda
-- Prompt engineering prompts completed: 12
-- Number of word tokens: 46
-- Vocabulary size: 39
-- Final unmasked loss: 0.6318
-- Final causal masked loss: 0.9518
-- Maximum attention above the diagonal in the masked model: 0.0
-
-Errors / Changes
-----------------
-At first, the prompt section expected an OpenAI API key. I changed that because I did not want to pay for API calls for this homework.
-
-I also tried a Hugging Face pipeline version and got:
-
-```text
-KeyError: Unknown task text2text-generation
-```
-
-I fixed this by loading the Hugging Face tokenizer and model directly, then wrapping my generation function with LangChain.
-
-Checks
-------
-The notebook ran all cells without saved errors. The attention part printed attention matrices with shape `(46, 46)`. The masked model had `0.0` attention above the diagonal, which is what I expected for causal masking.
