@@ -1,0 +1,16 @@
+HW2.5 GPU Assignment I
+GPU: NVIDIA GeForce RTX 5090
+GPU UUID: GPU-41051861-72ca-e198-fd60-2bf89fd2a67b
+Driver: 610.60
+PyTorch: 2.13.0+cu130
+PyTorch CUDA runtime: 13.0
+SID4: 6812
+SEED: 6812
+SLICE: 812
+HP_ID: 2
+CLS_A: 2
+CLS_B: 9
+Part B: 5 warmups + 10 measured repetitions per matrix case.
+Part C add: 10 warmups + 30 measured repetitions.
+Part D coarse: 2 warmups + 5 repetitions; boundary: 1 warmup + 2 repetitions.
+Part E: 20-minute sustained load; telemetry target interval 5 seconds.
