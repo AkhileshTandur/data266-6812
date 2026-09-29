@@ -1,0 +1,51 @@
+Homework 5 — Fine-Tuning LLM using LoRA
+===========================================
+
+Environment:
+Google Colab
+Device: CUDA
+GPU: NVIDIA L4
+
+Base Model:
+google/flan-t5-small
+
+Dataset:
+neil-code/dialogsum-test
+
+Training Configuration:
+Training examples: 1000
+Epochs: 1
+Batch size: 8
+Learning rate: 2e-4
+LoRA alpha: 32
+LoRA dropout: 0.05
+Target modules: q, v
+
+Experiment 1 — LoRA r=4
+Total parameters: 77,133,184
+Trainable parameters: 172,032
+Trainable percentage: 0.2230%
+Initial batch loss: 2.737375
+Final average training loss: 1.819718
+Last batch loss: 1.704858
+Training steps: 125
+Status: Completed successfully
+Adapter saved to: ./lora_dialogsum_r4
+
+Experiment 2 — LoRA r=16
+Total parameters: 77,649,280
+Trainable parameters: 688,128
+Trainable percentage: 0.8862%
+Initial batch loss: 2.737375
+Final average training loss: 1.822534
+Last batch loss: 1.701030
+Training steps: 125
+Status: Completed successfully
+Adapter saved to: ./lora_dialogsum_r16
+
+Baseline inference completed on two dialogues.
+Post-fine-tuning inference completed for r=4 and r=16.
+
+The baseline focused mainly on one chopstick rule. Both fine-tuned models generated summaries covering the broader Chinese table-etiquette discussion.
+
+No execution errors occurred in the final notebook run.
