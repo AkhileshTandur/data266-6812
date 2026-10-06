@@ -1,24 +1,141 @@
-HW4 Run Log
-===========
+Homework 6 - Console output recovered from the executed notebook
+Source: HW6_STL10_Representation_Learning.ipynb
+The original Colab RUN_LOG.txt was not downloaded. The text below preserves
+saved console output in cell order. Original wall-clock timestamps are not
+available in these outputs and have not been reconstructed or invented.
+This recovered log does not fully meet the timestamp requirement in Section 0.3.
+Epoch durations are retained exactly as printed.
 
-I ran the notebook for the mini GPT assignment and checked that the main pieces run in order.
+--- Notebook cell 4; execution count 2 ---
+BEGIN HW6 data setup; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
+100%|##########| 2.64G/2.64G [04:07<00:00, 10.7MB/s]
+{
+  "python": "3.13.15",
+  "torch": "2.11.0+cu130",
+  "torchvision": "0.26.0+cu130",
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "course_step0": "provided; execution/submission artifacts still required",
+  "deterministic_algorithms": true,
+  "cublas_workspace_config": ":4096:8",
+  "demo_augmentations": "provisional"
+}
+END HW6 data setup
 
-The notebook does the following:
+--- Notebook cell 6; execution count 3 ---
+BEGIN HW6 Part A supervised; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
+supervised: 1/15, loss=2.2351, 4.0s
+supervised: 2/15, loss=1.7441, 0.9s
+supervised: 3/15, loss=1.4810, 0.7s
+supervised: 4/15, loss=1.3556, 0.8s
+supervised: 5/15, loss=1.1322, 0.8s
+supervised: 6/15, loss=0.9858, 0.7s
+supervised: 7/15, loss=0.8873, 0.8s
+supervised: 8/15, loss=0.7032, 0.7s
+supervised: 9/15, loss=0.5208, 0.8s
+supervised: 10/15, loss=0.3448, 1.1s
+supervised: 11/15, loss=0.2556, 0.7s
+supervised: 12/15, loss=0.1804, 0.8s
+supervised: 13/15, loss=0.1320, 0.7s
+supervised: 14/15, loss=0.1110, 0.8s
+supervised: 15/15, loss=0.1029, 0.7s
+Part A test accuracy: 43.60%
+END HW6 Part A supervised
 
-- reads `shakespeare.txt` if it is available
-- creates a small local fallback text file if the dataset is missing
-- builds a character vocabulary
-- prints the vocabulary size
-- makes input and target windows with sequence length 128
-- prints two decoded input/target examples
-- builds a manual multi-head causal attention layer
-- uses 4 attention heads
-- stacks 2 decoder blocks
-- trains the model for 5 epochs with Adam
-- saves the training loss plot
-- generates text from `ROMEO:`
-- compares greedy, temperature, and top-k decoding
-- saves the generated samples and findings PDF
+--- Notebook cell 8; execution count 4 ---
+BEGIN HW6 Part B rotation; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
+rotation: 1/15, loss=0.9463, 142.9s
+rotation: 2/15, loss=0.7439, 144.4s
+rotation: 3/15, loss=0.6424, 144.4s
+rotation: 4/15, loss=0.5775, 144.1s
+rotation: 5/15, loss=0.5193, 144.0s
+rotation: 6/15, loss=0.4748, 143.6s
+rotation: 7/15, loss=0.4316, 142.5s
+rotation: 8/15, loss=0.3996, 142.3s
+rotation: 9/15, loss=0.3632, 142.0s
+rotation: 10/15, loss=0.3308, 142.9s
+rotation: 11/15, loss=0.2985, 142.7s
+rotation: 12/15, loss=0.2717, 142.4s
+rotation: 13/15, loss=0.2476, 141.4s
+rotation: 14/15, loss=0.2311, 142.1s
+rotation: 15/15, loss=0.2238, 143.6s
+rotation_linear: 1/20, loss=3.5381, 0.0s
+rotation_linear: 2/20, loss=2.7103, 0.0s
+rotation_linear: 3/20, loss=2.2292, 0.0s
+rotation_linear: 4/20, loss=2.0199, 0.0s
+rotation_linear: 5/20, loss=1.7326, 0.0s
+rotation_linear: 6/20, loss=1.6070, 0.0s
+rotation_linear: 7/20, loss=1.5772, 0.0s
+rotation_linear: 8/20, loss=1.4804, 0.0s
+rotation_linear: 9/20, loss=1.4732, 0.0s
+rotation_linear: 10/20, loss=1.3761, 0.0s
+rotation_linear: 11/20, loss=1.3521, 0.0s
+rotation_linear: 12/20, loss=1.3447, 0.0s
+rotation_linear: 13/20, loss=1.3240, 0.0s
+rotation_linear: 14/20, loss=1.2935, 0.0s
+rotation_linear: 15/20, loss=1.2613, 0.0s
+rotation_linear: 16/20, loss=1.2538, 0.0s
+rotation_linear: 17/20, loss=1.2450, 0.0s
+rotation_linear: 18/20, loss=1.2365, 0.0s
+rotation_linear: 19/20, loss=1.2324, 0.0s
+rotation_linear: 20/20, loss=1.2308, 0.0s
+Part B test accuracy: 46.30%
+END HW6 Part B rotation
 
-The model is small, so the generated text is not perfect. The main goal here was to show the Transformer parts working from scratch and compare the decoding choices.
+--- Notebook cell 10; execution count 5 ---
+BEGIN HW6 Part C SimCLR; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
+simclr: 1/20, loss=4.4767, 118.4s
+simclr: 2/20, loss=3.7528, 117.8s
+simclr: 3/20, loss=3.4080, 117.5s
+simclr: 4/20, loss=3.1325, 117.8s
+simclr: 5/20, loss=2.9456, 117.6s
+simclr: 6/20, loss=2.7966, 117.4s
+simclr: 7/20, loss=2.6968, 118.0s
+simclr: 8/20, loss=2.6282, 117.8s
+simclr: 9/20, loss=2.5550, 118.4s
+simclr: 10/20, loss=2.4971, 119.1s
+simclr: 11/20, loss=2.4498, 117.4s
+simclr: 12/20, loss=2.4079, 117.8s
+simclr: 13/20, loss=2.3735, 118.0s
+simclr: 14/20, loss=2.3265, 116.6s
+simclr: 15/20, loss=2.2903, 116.3s
+simclr: 16/20, loss=2.2579, 116.2s
+simclr: 17/20, loss=2.2421, 116.7s
+simclr: 18/20, loss=2.2163, 116.2s
+simclr: 19/20, loss=2.2078, 115.3s
+simclr: 20/20, loss=2.2030, 115.2s
+simclr_linear: 1/20, loss=2.7842, 0.0s
+simclr_linear: 2/20, loss=1.7931, 0.0s
+simclr_linear: 3/20, loss=1.6687, 0.0s
+simclr_linear: 4/20, loss=1.4237, 0.0s
+simclr_linear: 5/20, loss=1.2437, 0.0s
+simclr_linear: 6/20, loss=1.0704, 0.0s
+simclr_linear: 7/20, loss=1.0344, 0.0s
+simclr_linear: 8/20, loss=0.9666, 0.0s
+simclr_linear: 9/20, loss=0.9701, 0.0s
+simclr_linear: 10/20, loss=0.8866, 0.0s
+simclr_linear: 11/20, loss=0.9690, 0.0s
+simclr_linear: 12/20, loss=0.8755, 0.0s
+simclr_linear: 13/20, loss=0.8839, 0.0s
+simclr_linear: 14/20, loss=0.8018, 0.0s
+simclr_linear: 15/20, loss=0.7772, 0.0s
+simclr_linear: 16/20, loss=0.7510, 0.0s
+simclr_linear: 17/20, loss=0.7460, 0.0s
+simclr_linear: 18/20, loss=0.7346, 0.0s
+simclr_linear: 19/20, loss=0.7281, 0.0s
+simclr_linear: 20/20, loss=0.7257, 0.0s
+Part C test accuracy: 51.79%
+END HW6 Part C SimCLR
+
+--- Notebook cell 12; execution count 6 ---
+BEGIN HW6 Part D report; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
+[Saved figure: figures/nearest_neighbors.png]
+[Saved figure: figures/training_losses.png]
+| Encoder | Test accuracy | Mean query precision@5 |
+|---|---:|---:|
+| Supervised | 43.60% | 60.00% |
+| Rotation SSL | 46.30% | 33.33% |
+| SimCLR | 51.79% | 53.33% |
+Artifacts written to /content/hw6_outputs
+END HW6 Part D report
 
