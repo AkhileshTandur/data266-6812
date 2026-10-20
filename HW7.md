@@ -89,15 +89,15 @@ Both models completed 20 epochs on an NVIDIA GeForce GTX 1650 using Python 3.13.
 | Model | Selected epoch | Parameters | Test MSE | Test MAE | Test BCE/pixel |
 |---|---:|---:|---:|---:|---:|
 | FC-AE | 20 | 476,720 | 0.012105 | 0.057258 | 0.279904 |
-| VAE (posterior mean) | 19 | 480,848 | 0.015484 | 0.065803 | 0.289328 |
+| VAE (posterior mean) | 20 | 480,848 | 0.015510 | 0.065589 | 0.289150 |
 
-For the VAE, the sampled test reconstruction BCE was **230.3322 nats/image**, the KL term was **12.5377 nats/image**, and their sum was **242.8699 nats/image**. These sampled values differ from the posterior-mean reconstruction metrics above.
+For the VAE, the sampled test reconstruction BCE was **230.0625 nats/image**, the KL term was **12.8841 nats/image**, and their sum was **242.9465 nats/image**. These sampled values differ from the posterior-mean reconstruction metrics above.
 
-The FC-AE had 21.8% lower test MSE than the VAE in this run. This fits the difference in objectives: the FC-AE focuses entirely on reconstructing its input, while the VAE also pays a penalty for moving its latent posterior away from the prior. This is evidence for this configuration and seed, not a claim that all FC-AEs outperform all VAEs.
+The FC-AE had 22.0% lower test MSE than the VAE in this run. This fits the difference in objectives: the FC-AE focuses entirely on reconstructing its input, while the VAE also pays a penalty for moving its latent posterior away from the prior. This is evidence for this configuration and seed, not a claim that all FC-AEs outperform all VAEs.
 
 ![Training and validation objectives](hw7_outputs/training_curves.png)
 
-Both objectives fall substantially early in training and then improve more slowly. Training and validation curves remain close, with no large overfitting gap in these 20 epochs. Training loss averages batches while weights are changing; validation uses the weights at the end of the epoch, which helps explain why validation is often lower. The FC-AE selected epoch 20; the VAE selected epoch 19 because its validation objective rose slightly at epoch 20.
+Both objectives fall substantially early in training and then improve more slowly. Training and validation curves remain close, with no large overfitting gap in these 20 epochs. Training loss averages batches while weights are changing; validation uses the weights at the end of the epoch, which helps explain why validation is often lower. Both models selected epoch 20 using their validation objectives. The VAE had slightly lower validation MSE at epoch 19, but checkpoint selection followed its reconstruction-plus-KL objective rather than MSE.
 
 ![Original and reconstructed test images](hw7_outputs/reconstructions.png)
 
@@ -105,16 +105,16 @@ The figure uses the first test example from each class, rather than selecting th
 
 | Class | FC-AE test MSE | VAE test MSE |
 |---|---:|---:|
-| T-shirt/top | 0.011067 | 0.014507 |
-| Trouser | 0.006065 | 0.008391 |
-| Pullover | 0.011517 | 0.014833 |
-| Dress | 0.011140 | 0.014606 |
-| Coat | 0.010726 | 0.013762 |
-| Sandal | 0.018372 | 0.023365 |
-| Shirt | 0.012063 | 0.014952 |
-| Sneaker | 0.008907 | 0.011820 |
-| Bag | 0.019209 | 0.023192 |
-| Ankle boot | 0.011985 | 0.015412 |
+| T-shirt/top | 0.011067 | 0.014618 |
+| Trouser | 0.006065 | 0.008368 |
+| Pullover | 0.011517 | 0.014936 |
+| Dress | 0.011140 | 0.014519 |
+| Coat | 0.010726 | 0.013874 |
+| Sandal | 0.018372 | 0.023258 |
+| Shirt | 0.012063 | 0.015062 |
+| Sneaker | 0.008907 | 0.011741 |
+| Bag | 0.019209 | 0.023114 |
+| Ankle boot | 0.011985 | 0.015614 |
 
 Trousers have the lowest error for both models. Bags and sandals are among the hardest classes. Their higher errors suggest that detailed shapes and varied appearances are harder to capture with these compact fully connected models.
 
