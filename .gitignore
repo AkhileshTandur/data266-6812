@@ -1,5 +1,4 @@
 
 .ipynb_checkpoints/
 __pycache__/
-data/
-hw6_outputs/*.pt
+hw7_data/

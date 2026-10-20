@@ -1,37 +1,36 @@
-# AI use — Homework 6
+# AI use — Homework 7
 
-I used ChatGPT/Codex to help write the notebook, set up the three training methods,
-check the contrastive loss and frozen encoders, and draft the supporting documents.
-The assistant also helped interpret the saved results and compare the augmentations
-with the instructor's demo. I ran the notebook in Colab and provided the executed
-notebook for review. The initial implementation and these documents were generated
-with substantial AI assistance; I am not claiming that I wrote them independently.
+This is an assistant-prepared disclosure draft. I need to review it and express my own understanding before submitting it as my personal appendix.
 
-One mistake was the first version of RUN_LOG.txt. It started with:
+## What the assistant did
 
-```text
-Homework 6 — Implementation validation
+ChatGPT/Codex drafted the GAN explanations, wrote the FC-AE and VAE implementation, ran the experiments, prepared the notebook, and checked the saved results. It also helped interpret the reconstruction plots and remove unrelated homework files. The implementation and report were substantially assistant-generated. I supplied the assignment and standing requirements; this draft does not claim that I independently wrote the implementation.
 
-Local environment inspected:
-Python 3.13; PyTorch 2.6.0+cu124; torchvision 0.21.0+cu124.
-CUDA available; NVIDIA GeForce GTX 1650, 4 GB VRAM.
+## A specific mistake
+
+The first implementation left the evaluation metrics as NumPy scalars:
+
+```python
+rec, kl, mse, mae, bce = sums / count
 ```
 
-This was a summary of local code checks, not the console log from the actual
-training run. The problem became clear when the standing requirements were compared
-with the file: it did not contain the required timestamped training output.
+Those values were saved inside the checkpoint's validation dictionary. After the first FC-AE training run, the checkpoint reload failed with this output:
 
-The assistant added logging around each notebook stage so that printed output and
-errors would be saved with UTC timestamps. That fixes the logging behavior for runs.
-However, I did not download the original log from Colab. The current RUN_LOG.txt
-was recovered from the notebook's saved output, so it contains the training progress
-but not the original timestamps. That limitation is stated in the file.
+```text
+_pickle.UnpicklingError: Weights only load failed.
+WeightsUnpickler error: Unsupported global: GLOBAL numpy._core.multiarray.scalar was not an allowed global by default.
+```
 
-The assistant checked the contrastive loss against a separate scalar calculation,
-checked cosine retrieval with known vectors, and checked that encoder weights and
-BatchNorm statistics stayed unchanged during linear training. The saved full run
-finished all four parts without a recorded exception. These checks do not replace
-my responsibility to understand and explain the notebook.
+This was found by running the actual training pipeline, not just checking the model's tensor shapes. Training reached epoch 20, but execution stopped when `torch.load(..., weights_only=True)` tried to read the best checkpoint.
 
-This appendix is an assisted draft. Before submitting, I need to review it and
-describe my own understanding and contributions in my own words.
+## The correction and verification
+
+The corrected line is:
+
+```python
+rec, kl, mse, mae, bce = map(float, sums / count)
+```
+
+Python floats are supported metadata in the restricted checkpoint loader. This preserves the numeric values without disabling `weights_only=True`. The experiment was rerun after the correction. The validation script reloads both checkpoints and recomputes MSE, MAE, BCE, KL, and objective on all 10,000 test images, checking them against the saved results. It also checks a closed-form BCE/KL example, the data split, and gradients into both VAE encoder heads.
+
+After the full standing requirements arrived, validation sampling and generation were also changed from offset seeds to SEED = 6812. The final reported experiment uses that seed and is run through the notebook. I should be able to explain why the VAE uses reparameterization, why its KL term is summed over latent dimensions, and why total VAE loss is not directly comparable to the FC-AE loss.

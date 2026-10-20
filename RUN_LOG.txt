@@ -1,141 +1,47 @@
-Homework 6 - Console output recovered from the executed notebook
-Source: HW6_STL10_Representation_Learning.ipynb
-The original Colab RUN_LOG.txt was not downloaded. The text below preserves
-saved console output in cell order. Original wall-clock timestamps are not
-available in these outputs and have not been reconstructed or invented.
-This recovered log does not fully meet the timestamp requirement in Section 0.3.
-Epoch durations are retained exactly as printed.
+HW7 development run before final standing-requirement seed alignment.
+2026-10-20 20:41:38,594 UTC HW7 configuration: {'seed': 6812, 'config': {'epochs': 20, 'batch_size': 256, 'latent': 32, 'lr': 0.001}, 'python': '3.13.7', 'torch': '2.6.0+cu124', 'torchvision': '0.21.0+cu124', 'device': 'NVIDIA GeForce GTX 1650'}
+2026-10-20 20:41:43,058 UTC fc_ae epoch 01/20 train=304.4547 val=256.6785 val_MSE=0.029515 3.7s
+2026-10-20 20:41:45,987 UTC fc_ae epoch 02/20 train=247.0152 val=241.3836 val_MSE=0.022494 2.9s
+2026-10-20 20:41:48,699 UTC fc_ae epoch 03/20 train=239.2935 val=236.8747 val_MSE=0.020444 2.7s
+2026-10-20 20:41:51,355 UTC fc_ae epoch 04/20 train=235.2695 val=233.0168 val_MSE=0.018739 2.6s
+2026-10-20 20:41:54,171 UTC fc_ae epoch 05/20 train=231.7629 val=230.2930 val_MSE=0.017562 2.8s
+2026-10-20 20:41:56,730 UTC fc_ae epoch 06/20 train=229.4602 val=228.2684 val_MSE=0.016689 2.5s
+2026-10-20 20:41:59,405 UTC fc_ae epoch 07/20 train=227.6769 val=226.7190 val_MSE=0.016029 2.6s
+2026-10-20 20:42:02,067 UTC fc_ae epoch 08/20 train=226.2950 val=225.4381 val_MSE=0.015456 2.6s
+2026-10-20 20:42:04,574 UTC fc_ae epoch 09/20 train=224.9864 val=224.4002 val_MSE=0.015031 2.5s
+2026-10-20 20:42:07,191 UTC fc_ae epoch 10/20 train=223.8806 val=223.3441 val_MSE=0.014510 2.6s
+2026-10-20 20:42:09,822 UTC fc_ae epoch 11/20 train=222.9583 val=222.6111 val_MSE=0.014279 2.6s
+2026-10-20 20:42:12,515 UTC fc_ae epoch 12/20 train=222.1826 val=221.7298 val_MSE=0.013816 2.7s
+2026-10-20 20:42:15,003 UTC fc_ae epoch 13/20 train=221.3473 val=221.2064 val_MSE=0.013639 2.5s
+2026-10-20 20:42:17,551 UTC fc_ae epoch 14/20 train=220.8327 val=220.4920 val_MSE=0.013338 2.5s
+2026-10-20 20:42:20,328 UTC fc_ae epoch 15/20 train=220.2229 val=220.1411 val_MSE=0.013219 2.8s
+2026-10-20 20:42:23,574 UTC fc_ae epoch 16/20 train=219.6055 val=219.3621 val_MSE=0.012841 3.2s
+2026-10-20 20:42:25,989 UTC fc_ae epoch 17/20 train=219.1480 val=219.0906 val_MSE=0.012667 2.4s
+2026-10-20 20:42:28,615 UTC fc_ae epoch 18/20 train=218.6554 val=218.6561 val_MSE=0.012597 2.6s
+2026-10-20 20:42:31,397 UTC fc_ae epoch 19/20 train=218.1939 val=218.0374 val_MSE=0.012232 2.8s
+2026-10-20 20:42:34,307 UTC fc_ae epoch 20/20 train=217.7171 val=217.7254 val_MSE=0.012115 2.9s
+2026-10-20 20:42:34,644 UTC fc_ae TEST {'objective': 219.44462436523438, 'reconstruction_bce_sum': 219.44462436523438, 'kl': 0.0, 'mse': 0.012105227378010749, 'mae': 0.05725825964212418, 'bce_per_pixel': 0.2799038480758667, 'per_class_mse': {'T-shirt/top': 0.011067152056726627, 'Trouser': 0.006064992129453458, 'Pullover': 0.011517050681402907, 'Dress': 0.011140341432997957, 'Coat': 0.010726251875748858, 'Sandal': 0.018371876580640673, 'Shirt': 0.012063230565283448, 'Sneaker': 0.00890656192705501, 'Bag': 0.019209356869570912, 'Ankle boot': 0.011985459582880139}, 'best_epoch': 20, 'parameters': 476720}
+2026-10-20 20:42:38,011 UTC vae epoch 01/20 train=327.7840 val=283.6771 val_MSE=0.038295 3.3s
+2026-10-20 20:42:40,960 UTC vae epoch 02/20 train=273.1004 val=265.6947 val_MSE=0.027454 2.9s
+2026-10-20 20:42:43,784 UTC vae epoch 03/20 train=262.0783 val=258.6072 val_MSE=0.023639 2.8s
+2026-10-20 20:42:47,001 UTC vae epoch 04/20 train=256.5562 val=254.5225 val_MSE=0.021835 3.2s
+2026-10-20 20:42:50,051 UTC vae epoch 05/20 train=252.9841 val=251.5107 val_MSE=0.020580 3.0s
+2026-10-20 20:42:52,916 UTC vae epoch 06/20 train=250.5118 val=249.4665 val_MSE=0.019518 2.8s
+2026-10-20 20:42:56,118 UTC vae epoch 07/20 train=248.6230 val=247.8368 val_MSE=0.018579 3.2s
+2026-10-20 20:42:59,133 UTC vae epoch 08/20 train=247.0050 val=246.2561 val_MSE=0.017890 3.0s
+2026-10-20 20:43:02,226 UTC vae epoch 09/20 train=245.8717 val=245.3151 val_MSE=0.017468 3.1s
+2026-10-20 20:43:05,586 UTC vae epoch 10/20 train=244.9490 val=244.5066 val_MSE=0.017095 3.3s
+2026-10-20 20:43:08,474 UTC vae epoch 11/20 train=244.2203 val=243.7117 val_MSE=0.016744 2.9s
+2026-10-20 20:43:11,407 UTC vae epoch 12/20 train=243.6444 val=243.3840 val_MSE=0.016617 2.9s
+2026-10-20 20:43:14,294 UTC vae epoch 13/20 train=243.1764 val=242.8297 val_MSE=0.016331 2.9s
+2026-10-20 20:43:17,183 UTC vae epoch 14/20 train=242.7143 val=242.4609 val_MSE=0.016160 2.9s
+2026-10-20 20:43:20,083 UTC vae epoch 15/20 train=242.3517 val=242.1404 val_MSE=0.016013 2.9s
+2026-10-20 20:43:22,950 UTC vae epoch 16/20 train=242.0719 val=241.9257 val_MSE=0.015866 2.8s
+2026-10-20 20:43:25,759 UTC vae epoch 17/20 train=241.7550 val=241.5814 val_MSE=0.015721 2.8s
+2026-10-20 20:43:28,646 UTC vae epoch 18/20 train=241.4842 val=241.3744 val_MSE=0.015592 2.9s
+2026-10-20 20:43:31,454 UTC vae epoch 19/20 train=241.2447 val=241.1059 val_MSE=0.015471 2.8s
+2026-10-20 20:43:34,280 UTC vae epoch 20/20 train=241.0315 val=241.1181 val_MSE=0.015485 2.8s
+2026-10-20 20:43:34,646 UTC vae TEST {'objective': 242.86985121154785, 'reconstruction_bce_sum': 230.33215751953125, 'kl': 12.537693692016601, 'mse': 0.01548401660323143, 'mae': 0.06580272178649903, 'bce_per_pixel': 0.28932790546417236, 'per_class_mse': {'T-shirt/top': 0.014506891791708767, 'Trouser': 0.008390543677611276, 'Pullover': 0.014832643143367023, 'Dress': 0.014605721381027252, 'Coat': 0.013761915836716071, 'Sandal': 0.023365331084933133, 'Shirt': 0.014952388800913468, 'Sneaker': 0.011820096297888084, 'Bag': 0.023192186737433076, 'Ankle boot': 0.015412447217851876}, 'best_epoch': 19, 'parameters': 480848}
+2026-10-20 20:43:36,827 UTC Completed both models, test evaluation, and figures.
 
---- Notebook cell 4; execution count 2 ---
-BEGIN HW6 data setup; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
-100%|##########| 2.64G/2.64G [04:07<00:00, 10.7MB/s]
-{
-  "python": "3.13.15",
-  "torch": "2.11.0+cu130",
-  "torchvision": "0.26.0+cu130",
-  "device": "cuda",
-  "gpu": "Tesla T4",
-  "course_step0": "provided; execution/submission artifacts still required",
-  "deterministic_algorithms": true,
-  "cublas_workspace_config": ":4096:8",
-  "demo_augmentations": "provisional"
-}
-END HW6 data setup
-
---- Notebook cell 6; execution count 3 ---
-BEGIN HW6 Part A supervised; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
-supervised: 1/15, loss=2.2351, 4.0s
-supervised: 2/15, loss=1.7441, 0.9s
-supervised: 3/15, loss=1.4810, 0.7s
-supervised: 4/15, loss=1.3556, 0.8s
-supervised: 5/15, loss=1.1322, 0.8s
-supervised: 6/15, loss=0.9858, 0.7s
-supervised: 7/15, loss=0.8873, 0.8s
-supervised: 8/15, loss=0.7032, 0.7s
-supervised: 9/15, loss=0.5208, 0.8s
-supervised: 10/15, loss=0.3448, 1.1s
-supervised: 11/15, loss=0.2556, 0.7s
-supervised: 12/15, loss=0.1804, 0.8s
-supervised: 13/15, loss=0.1320, 0.7s
-supervised: 14/15, loss=0.1110, 0.8s
-supervised: 15/15, loss=0.1029, 0.7s
-Part A test accuracy: 43.60%
-END HW6 Part A supervised
-
---- Notebook cell 8; execution count 4 ---
-BEGIN HW6 Part B rotation; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
-rotation: 1/15, loss=0.9463, 142.9s
-rotation: 2/15, loss=0.7439, 144.4s
-rotation: 3/15, loss=0.6424, 144.4s
-rotation: 4/15, loss=0.5775, 144.1s
-rotation: 5/15, loss=0.5193, 144.0s
-rotation: 6/15, loss=0.4748, 143.6s
-rotation: 7/15, loss=0.4316, 142.5s
-rotation: 8/15, loss=0.3996, 142.3s
-rotation: 9/15, loss=0.3632, 142.0s
-rotation: 10/15, loss=0.3308, 142.9s
-rotation: 11/15, loss=0.2985, 142.7s
-rotation: 12/15, loss=0.2717, 142.4s
-rotation: 13/15, loss=0.2476, 141.4s
-rotation: 14/15, loss=0.2311, 142.1s
-rotation: 15/15, loss=0.2238, 143.6s
-rotation_linear: 1/20, loss=3.5381, 0.0s
-rotation_linear: 2/20, loss=2.7103, 0.0s
-rotation_linear: 3/20, loss=2.2292, 0.0s
-rotation_linear: 4/20, loss=2.0199, 0.0s
-rotation_linear: 5/20, loss=1.7326, 0.0s
-rotation_linear: 6/20, loss=1.6070, 0.0s
-rotation_linear: 7/20, loss=1.5772, 0.0s
-rotation_linear: 8/20, loss=1.4804, 0.0s
-rotation_linear: 9/20, loss=1.4732, 0.0s
-rotation_linear: 10/20, loss=1.3761, 0.0s
-rotation_linear: 11/20, loss=1.3521, 0.0s
-rotation_linear: 12/20, loss=1.3447, 0.0s
-rotation_linear: 13/20, loss=1.3240, 0.0s
-rotation_linear: 14/20, loss=1.2935, 0.0s
-rotation_linear: 15/20, loss=1.2613, 0.0s
-rotation_linear: 16/20, loss=1.2538, 0.0s
-rotation_linear: 17/20, loss=1.2450, 0.0s
-rotation_linear: 18/20, loss=1.2365, 0.0s
-rotation_linear: 19/20, loss=1.2324, 0.0s
-rotation_linear: 20/20, loss=1.2308, 0.0s
-Part B test accuracy: 46.30%
-END HW6 Part B rotation
-
---- Notebook cell 10; execution count 5 ---
-BEGIN HW6 Part C SimCLR; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
-simclr: 1/20, loss=4.4767, 118.4s
-simclr: 2/20, loss=3.7528, 117.8s
-simclr: 3/20, loss=3.4080, 117.5s
-simclr: 4/20, loss=3.1325, 117.8s
-simclr: 5/20, loss=2.9456, 117.6s
-simclr: 6/20, loss=2.7966, 117.4s
-simclr: 7/20, loss=2.6968, 118.0s
-simclr: 8/20, loss=2.6282, 117.8s
-simclr: 9/20, loss=2.5550, 118.4s
-simclr: 10/20, loss=2.4971, 119.1s
-simclr: 11/20, loss=2.4498, 117.4s
-simclr: 12/20, loss=2.4079, 117.8s
-simclr: 13/20, loss=2.3735, 118.0s
-simclr: 14/20, loss=2.3265, 116.6s
-simclr: 15/20, loss=2.2903, 116.3s
-simclr: 16/20, loss=2.2579, 116.2s
-simclr: 17/20, loss=2.2421, 116.7s
-simclr: 18/20, loss=2.2163, 116.2s
-simclr: 19/20, loss=2.2078, 115.3s
-simclr: 20/20, loss=2.2030, 115.2s
-simclr_linear: 1/20, loss=2.7842, 0.0s
-simclr_linear: 2/20, loss=1.7931, 0.0s
-simclr_linear: 3/20, loss=1.6687, 0.0s
-simclr_linear: 4/20, loss=1.4237, 0.0s
-simclr_linear: 5/20, loss=1.2437, 0.0s
-simclr_linear: 6/20, loss=1.0704, 0.0s
-simclr_linear: 7/20, loss=1.0344, 0.0s
-simclr_linear: 8/20, loss=0.9666, 0.0s
-simclr_linear: 9/20, loss=0.9701, 0.0s
-simclr_linear: 10/20, loss=0.8866, 0.0s
-simclr_linear: 11/20, loss=0.9690, 0.0s
-simclr_linear: 12/20, loss=0.8755, 0.0s
-simclr_linear: 13/20, loss=0.8839, 0.0s
-simclr_linear: 14/20, loss=0.8018, 0.0s
-simclr_linear: 15/20, loss=0.7772, 0.0s
-simclr_linear: 16/20, loss=0.7510, 0.0s
-simclr_linear: 17/20, loss=0.7460, 0.0s
-simclr_linear: 18/20, loss=0.7346, 0.0s
-simclr_linear: 19/20, loss=0.7281, 0.0s
-simclr_linear: 20/20, loss=0.7257, 0.0s
-Part C test accuracy: 51.79%
-END HW6 Part C SimCLR
-
---- Notebook cell 12; execution count 6 ---
-BEGIN HW6 Part D report; personal parameters: {'SID4': 6812, 'SEED': 6812, 'SLICE': 812, 'HP_ID': 2, 'CLS_A': 2, 'CLS_B': 9}
-[Saved figure: figures/nearest_neighbors.png]
-[Saved figure: figures/training_losses.png]
-| Encoder | Test accuracy | Mean query precision@5 |
-|---|---:|---:|
-| Supervised | 43.60% | 60.00% |
-| Rotation SSL | 46.30% | 33.33% |
-| SimCLR | 51.79% | 53.33% |
-Artifacts written to /content/hw6_outputs
-END HW6 Part D report
-
+Final notebook run follows; its metrics supersede the development run.
