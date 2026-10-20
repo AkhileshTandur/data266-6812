@@ -2,7 +2,7 @@
 
 **SID4: 6812 · SEED: 6812 · SLICE: 812 · HP_ID: 2 · CLS_A: 2 · CLS_B: 9**
 
-This assignment explains GAN training, mode collapse, and three GAN variants. The practical section compares a fully connected autoencoder (FC-AE) and a variational autoencoder (VAE) on FashionMNIST in PyTorch.
+In this assignment, I explain how GANs learn, why mode collapse happens, and how three GAN variants address different problems. For the practical part, I compare a fully connected autoencoder (FC-AE) with a variational autoencoder (VAE) on FashionMNIST using PyTorch. I used AI assistance for the implementation and report, as described in `AI_USE.md`.
 
 ## 1. The architecture of a GAN
 
@@ -56,7 +56,7 @@ FashionMNIST contains 28 × 28 grayscale images in ten clothing categories: 60,0
 | Batch size / epochs | 256 / 20 | 256 / 20 |
 | Best checkpoint | Lowest validation BCE | Lowest validation BCE + KL |
 
-Both models start from scratch and use the same split, minibatch ordering seed, decoder widths, and latent dimension. The VAE has an additional encoder head, so the parameter counts differ slightly. No second hyperparameter configuration is trained, as permitted in the assignment.
+For my comparison, both models start from scratch and use the same split, minibatch ordering seed, decoder widths, and latent dimension. The VAE has an additional encoder head, so the parameter counts differ slightly. I use one configuration for each model because the assignment allows us to skip the extra hyperparameter experiment.
 
 ### FC-AE objective
 
@@ -78,7 +78,7 @@ The KL weight stays at 1. Reconstruction loss is summed over pixels and KL is su
 
 ### Evaluation
 
-Both models are compared using per-pixel mean squared error (MSE), mean absolute error (MAE), and BCE on all 10,000 test images. Lower values are better. These are reconstruction measures, not classification accuracy or complete measures of generation quality.
+I compare both models using per-pixel mean squared error (MSE), mean absolute error (MAE), and BCE on all 10,000 test images. Lower values indicate better reconstruction. These metrics measure how closely the output matches the input; they do not measure classification accuracy or fully describe the quality of generated images.
 
 VAE reconstruction metrics and pictures use the decoded posterior mean μ for repeatability. This is not the same as averaging images over the posterior. The VAE objective is evaluated separately using one posterior sample per image with a fixed seed. It estimates the reconstruction-plus-KL objective, not exact test likelihood. Its total should not be directly ranked against the FC-AE total because only the VAE includes KL.
 
@@ -93,7 +93,7 @@ Both models completed 20 epochs on an NVIDIA GeForce GTX 1650 using Python 3.13.
 
 For the VAE, the sampled test reconstruction BCE was **230.0625 nats/image**, the KL term was **12.8841 nats/image**, and their sum was **242.9465 nats/image**. These sampled values differ from the posterior-mean reconstruction metrics above.
 
-The FC-AE had 22.0% lower test MSE than the VAE in this run. This fits the difference in objectives: the FC-AE focuses entirely on reconstructing its input, while the VAE also pays a penalty for moving its latent posterior away from the prior. This is evidence for this configuration and seed, not a claim that all FC-AEs outperform all VAEs.
+The main result in my comparison is that the FC-AE has 22.0% lower test MSE than the VAE. This makes sense given their objectives: the FC-AE focuses entirely on reconstruction, while the VAE also has to keep its latent posterior close to the prior. I would not generalize this result to every FC-AE and VAE, since this experiment uses one configuration and one seed.
 
 ![Training and validation objectives](hw7_outputs/training_curves.png)
 
@@ -101,7 +101,7 @@ Both objectives fall substantially early in training and then improve more slowl
 
 ![Original and reconstructed test images](hw7_outputs/reconstructions.png)
 
-The figure uses the first test example from each class, rather than selecting the best reconstructions. Both models preserve broad clothing shapes. The FC-AE keeps somewhat more detail in the coat and bag, while VAE outputs are smoother. Neither model accurately preserves the lettering on the pullover or the fine detail of the sandal. A low average pixel error does not mean every important detail survives.
+The figure shows the first test example from each class, so the examples are not selected for having especially good reconstructions. The main difference I see is that the FC-AE keeps more detail in the coat and bag, while the VAE produces smoother images. Both models preserve the overall clothing shapes, but neither reproduces the lettering on the pullover or the fine details of the sandal accurately. This helps explain why a low average pixel error does not mean every important detail is preserved.
 
 | Class | FC-AE test MSE | VAE test MSE |
 |---|---:|---:|
@@ -122,7 +122,7 @@ Trousers have the lowest error for both models. Bags and sandals are among the h
 
 These 32 images are decoded from independent standard-normal latent vectors, without input images or class labels. Several resemble tops, trousers, and shoes, although some shapes are ambiguous and all have limited fine detail. This shows the VAE can generate new examples from its prior; it does not establish complete coverage of all classes. The FC-AE has no trained standard-normal latent prior, so decoding arbitrary normal vectors would not be an equivalent generation experiment.
 
-A convolutional encoder and decoder would be a reasonable next experiment because they can exploit local image structure. Longer training or a different KL weight could also change the tradeoff. Neither modification was tested here. This comparison uses one seed and does not estimate variation across independent runs.
+For a follow-up experiment, I would try a convolutional encoder and decoder to make better use of local image structure. I would also compare longer training and different KL weights to study the tradeoff between reconstruction and generation. These are possible improvements, not results from this assignment. My current comparison uses one seed and does not estimate variation across independent runs.
 
 ### Validation checks
 
@@ -146,10 +146,10 @@ The standing requirements from Assignment 1 apply here. All six personal paramet
 
 The required artifacts are `HW7.ipynb`, `RUN_LOG.txt`, `METRICS.md`, `AI_USE.md`, the training code, and the checkpoints in `hw7_outputs/`. The required submission tag is `hw7`. The `.docx`/`.pdf`, TensorFlow, and CUDA requirements in the supplied Homework 1 page belong to Homework 1, not to the standing requirements for HW7.
 
-The repository is `https://github.com/AkhileshTandur/data266-6812`. GitHub reported it as public during verification, so it does not yet satisfy the private-repository requirement. Publishing the final files, changing visibility, and confirming instructor/grader access remain separate from the local experiment. The AI-use appendix is an assisted draft and needs the student's own review and wording.
+My submission repository is `https://github.com/AkhileshTandur/data266-6812`, with tags `hw7` and `7` identifying the final HW7 files. It was public when checked, so the private-repository requirement is still pending. Before submitting, I need to make it private and confirm instructor and grader access. I also need to review the AI-use appendix so it reflects my own understanding.
 
 ## AI assistance
 
-ChatGPT/Codex assisted with the explanations, implementation, experiment execution, and validation. Reported metrics come from saved run artifacts. The student should review the work and be able to explain the objectives, sampling procedure, and evaluation choices before submitting.
+I used ChatGPT/Codex to help prepare the explanations and implementation, execute the experiments, and validate the results. The reported metrics come from the saved run artifacts. My AI-use appendix describes the assistance and a specific checkpoint-loading mistake that was found and corrected during execution.
 
 One issue caught during execution was that validation metrics stored as NumPy scalars prevented loading a checkpoint with PyTorch's `weights_only=True` setting. The code now converts those metrics to Python floats before saving. The experiment was restarted after the correction, and checkpoint loading is included in `hw7_validate.py`.

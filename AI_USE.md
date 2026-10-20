@@ -1,10 +1,10 @@
 # AI use — Homework 7
 
-This is an assistant-prepared disclosure draft. I need to review it and express my own understanding before submitting it as my personal appendix.
+I used ChatGPT/Codex for substantial help with this assignment. This appendix describes that assistance and a specific error in the generated code.
 
-## What the assistant did
+## How I used AI
 
-ChatGPT/Codex drafted the GAN explanations, wrote the FC-AE and VAE implementation, ran the experiments, prepared the notebook, and checked the saved results. It also helped interpret the reconstruction plots and remove unrelated homework files. The implementation and report were substantially assistant-generated. I supplied the assignment and standing requirements; this draft does not claim that I independently wrote the implementation.
+I provided the Homework 7 prompt and the standing requirements, and asked ChatGPT/Codex to help prepare the submission. It drafted the GAN explanations, generated the FC-AE and VAE code, executed the experiments, prepared the notebook, and checked the saved results. It also helped interpret the plots and organize the files. I did not independently write the implementation or the initial report; both involved substantial AI assistance.
 
 ## A specific mistake
 
@@ -33,4 +33,4 @@ rec, kl, mse, mae, bce = map(float, sums / count)
 
 Python floats are supported metadata in the restricted checkpoint loader. This preserves the numeric values without disabling `weights_only=True`. The experiment was rerun after the correction. The validation script reloads both checkpoints and recomputes MSE, MAE, BCE, KL, and objective on all 10,000 test images, checking them against the saved results. It also checks a closed-form BCE/KL example, the data split, and gradients into both VAE encoder heads.
 
-After the full standing requirements arrived, validation sampling and generation were also changed from offset seeds to SEED = 6812. The final reported experiment uses that seed and is run through the notebook. I should be able to explain why the VAE uses reparameterization, why its KL term is summed over latent dimensions, and why total VAE loss is not directly comparable to the FC-AE loss.
+After I supplied the full standing requirements, validation sampling and generation were changed from offset seeds to SEED = 6812. The final experiment uses that seed and was executed through the notebook. Before submitting, I need to review the code and explain in my own words why the VAE uses reparameterization, why KL is summed over latent dimensions, and why its total loss cannot be directly compared with the FC-AE loss.
