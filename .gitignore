@@ -1,4 +1,5 @@
 
 .ipynb_checkpoints/
 __pycache__/
-hw7_data/
+hw8_data/
+hw8_outputs/checkpoint.pt

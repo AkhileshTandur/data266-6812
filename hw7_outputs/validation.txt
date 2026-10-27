@@ -1,6 +1,0 @@
-Final HW7 notebook run validated.
-Command: py -3.13 hw7_validate.py
-Exit code: 0
-PASS: both checkpoint reloads reproduce full test metrics.
-PASS: analytic BCE/KL, complete disjoint split, finite weights, VAE gradients.
-PASS: notebook schema; all 3 code cells executed; 3 embedded figures; no error outputs.
