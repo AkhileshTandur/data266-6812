@@ -1,22 +1,33 @@
-# HW4.5 — RTX 4090 submission
+# GPU Assignment II: Training throughput and memory
 
-Open **REPORT.pdf** first. This is a finished single-GPU study using the available RTX 4090, as requested. Read SCOPE.md for the distinction between this adaptation and the original two-GPU rubric. Measurements are actual; unavailable cross-card quantities are not invented.
+This project compares BERT training settings and vLLM inference on an RTX 4090. The baseline sentiment classifier reached **84.4% test accuracy (633/750)**. The full results and discussion are in [REPORT.pdf](REPORT.pdf), with a shorter summary in [METRICS.md](METRICS.md).
 
-The ZIP includes the trained BERT classifier, exact selected data, source, results, figures, logs, GPU-hour/usage records, AI disclosure, an integrity manifest and a local Git repository tagged **hw4-5**. The model weights are included in the ZIP and checksum manifest, but excluded from Git history because of their size.
+Only one GPU was available. The two-card comparisons are missing, and the Part C experiment uses one DDP rank. [SCOPE.md](SCOPE.md) explains these limitations and the approval still needed for the alternative.
 
-## Quick inference
+## Files
 
-Use Python 3.12. After installing the dependencies, run from this directory:
+- `corrected_train.py`: BERT training and evaluation.
+- `corrected/`: selected data, experiment results, predictions and logs.
+- `figures/`: training curves and benchmark plots.
+- `serving_benchmark.py` and `kv_context_sweep.py`: serving and KV-cache measurements.
+- `RUN_LOG.txt`, `GPU_HOURS.md` and `RESERVATION.md`: execution and hardware-use records.
+- `AI_USE.md`: AI assistance disclosure.
+
+## Run inference
+
+The trained BERT weights are in `HW4_5_RTX4090_Submission.zip`. They are excluded from Git because of their size. Extract the ZIP before using the saved model; cloning this repository alone does not include the weights.
+
+With Python 3.12 and the dependencies installed, run:
 
 ```bash
 python infer.py "I enjoyed this lab." "This was a frustrating day."
 ```
 
-This loads the included trained classifier and runs on CPU. Full source twitter.csv and external model downloads are not required for this inference.
+Inference runs on CPU and does not need the full Twitter CSV.
 
-## Reproduce and validate
+## Reproduce the experiments
 
-Training/serving use Linux or WSL2 with CUDA. The measured environment was Ubuntu 24.04, PyTorch 2.13.0/CUDA 13.0, Transformers 5.19.0 and vLLM 0.32.0. Use a GPU driver compatible with that runtime. Provision Python 3.12 and build dependencies, then install the pinned environment:
+The measured environment was Ubuntu 24.04 under WSL2, PyTorch 2.13.0 with CUDA 13.0, Transformers 5.19.0 and vLLM 0.32.0. Training and serving require CUDA and a compatible driver.
 
 ```bash
 sudo apt-get update
@@ -26,19 +37,18 @@ source .venv/bin/activate
 pip install -r requirements-linux-lock.txt
 python corrected_train.py --prepare
 python validate_corrected.py
-python infer.py "I loved the GPU lab today!"
 ```
 
-The data loader verifies the included 5,000-row CSV and rebuilds exactly the measured token tensors and splits without the 1.6M-row CSV. `verify_packaged_data.py` compares that reconstruction with a local canonical cache and detects modified inputs. `corrected/PACKAGED_DATA_VALIDATION.json` records the successful pre-submission check.
-
-The training suite resumes completed records. To measure fresh runs, first copy the published outputs to a separate archive and run in a clean copy containing source, config, selected_rows.csv and data_provenance.json. Keep benchmark GPU usage exclusive; unrelated jobs invalidate timing comparisons.
+The data loader checks the included 5,000-row CSV and recreates the token tensors and splits. It does not require the original 1.6-million-row dataset. The recorded reconstruction check is in `corrected/PACKAGED_DATA_VALIDATION.json`.
 
 ```bash
 bash run_corrected.sh
 ```
 
-The vLLM generator is Qwen/Qwen2.5-7B-Instruct at the pinned revision in the source. Its weights are downloaded from Hugging Face or reused from HF_HOME. The 14 GiB generator is not duplicated in this upload; its complete measured outputs and server configuration are included. BERT's trained classifier is included.
+The suite skips completed runs. For fresh measurements, preserve the published results separately and use a clean copy with the source, configuration, selected CSV and provenance file. Keep other GPU jobs stopped while benchmarking.
 
-## Integrity and version
+Serving uses `Qwen/Qwen2.5-7B-Instruct` at the revision pinned in the source. Its weights are downloaded from Hugging Face or reused from `HF_HOME`; they are not included in this repository or the submission ZIP.
 
-`MANIFEST.json` gives SHA-256 for every submitted file except the manifest itself and Git internals. `git show hw4-5` identifies the submitted source/results snapshot. No remote push or course submission is performed. Large trained weights are untracked in Git but covered by the committed manifest.
+## Version and checksums
+
+The `hw4-5` tag identifies the original experiment submission. `MANIFEST.json` records file checksums, including the BERT weights distributed in the ZIP. Documentation revisions after that tag do not change the recorded experiment results.

@@ -1,19 +1,19 @@
-# Hardware scope and interpretation
+# Hardware scope and limitations
 
-This submission uses the available NVIDIA GeForce RTX 4090 (24,564 MiB), UUID `GPU-3b8e816c-80f8-6ffd-b5ba-72725de33e1f`, on host `ADS-R15-836-08`.
+The experiments used one NVIDIA GeForce RTX 4090 (24,564 MiB) on host `ADS-R15-836-08`. Its UUID is `GPU-3b8e816c-80f8-6ffd-b5ba-72725de33e1f`.
 
-The student requested that the solution use the available GPU and proceed without an RTX 5090. Accordingly, this is a **single-GPU adaptation** of the assignment. No second-card results, UUID, VRAM ratio, cross-card throughput curve or multi-GPU bandwidth are invented.
+An RTX 5090 and a second GPU were not available. Batch scaling, memory techniques, serving and KV-cache measurements were therefore run on the RTX 4090 only.
 
-| Original item | Single-GPU treatment |
+| Assignment item | What is included |
 | --- | --- |
-| Per-card batch scaling and memory techniques | Measured on the RTX 4090. |
-| Comparison between two cards | Not measured; only one physical card was available. |
-| Part C, headed “use any 1 GPU” | Actual one-process/one-GPU NCCL DDP experiment, compared with ordinary one-GPU training. |
-| Two-GPU scaling efficiency and interconnect bandwidth | Not measurable with one rank. The report gives only explicitly labelled one-rank relative efficiency; inter-rank bandwidth is N/A. |
-| Serving and KV cache | Measured on the available RTX 4090, including a separate repeat. |
-| GPU UUID captures | Start/end captures of the same actual GPU; not represented as two different devices. |
-| Reservation confirmation | Observed execution record supplied; no booking confirmation was provided. |
+| Batch scaling and memory techniques | Measurements on the RTX 4090. |
+| Comparison between two cards | Not measured. |
+| Part C | One-process, one-GPU NCCL DDP compared with ordinary single-GPU training. |
+| Two-GPU scaling and communication bandwidth | Not measured. One-rank relative efficiency is reported separately; inter-rank bandwidth is N/A. |
+| Serving and KV cache | RTX 4090 measurements and a separate repeat. |
+| UUID captures | Start and end captures of the same GPU. |
+| Reservation | An observed usage record; no booking confirmation was supplied. |
 
-The assignment text also says an unsupported two-GPU pairing requires an instructor-approved alternative. A student's hardware-scope request is not represented as instructor approval. The single-GPU adaptation and this limitation are disclosed for assessment.
+The original rubric requires instructor approval for an alternative when a supported two-GPU pairing is unavailable. That approval has not been supplied. The one-rank experiment does not satisfy the original two-GPU requirement by itself.
 
-WSL inherits WDDM shared-memory fallback. Capacity experiments therefore record a resident allocator budget based on measured free VRAM minus 64 MiB workspace headroom. The uncapped paging attempt is preserved separately. OOM labels mean actual allocator OOM under the stated resident budget, not an unrestricted pageable-memory maximum.
+WSL can fall back to WDDM shared memory. To avoid treating host paging as usable GPU capacity, the capacity tests used a resident allocator budget equal to measured free VRAM minus 64 MiB of headroom. Reported OOM boundaries apply to that budget. The uncapped paging attempt is saved separately.

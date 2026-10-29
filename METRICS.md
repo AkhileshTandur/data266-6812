@@ -1,6 +1,6 @@
-# HW4.5 summary — not an HW5 baseline
+# HW4.5 results
 
-**RTX 4090 single-GPU study: actual two-class training and serving measurements. Part C is an explicitly labelled one-rank alternative; see SCOPE.md.**
+These results are from the RTX 4090 runs. Part C uses one DDP rank; see SCOPE.md for the limitations. These measurements are the HW4.5 summary, not an HW5 baseline.
 
 | Objective | GPU | Technique | Physical batch | Samples/s | Peak GiB | Wall s | Test accuracy |
 | --- | --- | --- | --- | --- | --- | --- | --- |
