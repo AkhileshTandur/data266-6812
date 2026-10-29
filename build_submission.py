@@ -32,6 +32,10 @@ def main():
     figure_dir=DEST/'figures';figure_dir.mkdir(exist_ok=True)
     for path in (ROOT/'figures').glob('corrected_*.png'):shutil.copy2(path,figure_dir/path.name)
     shutil.copy2(ROOT/'corrected'/'requirements-linux-lock.txt',DEST/'requirements-linux-lock.txt')
+    reference=DEST/'historical_reference';reference.mkdir(exist_ok=True)
+    prior_hf=ROOT/'results'/'serving'/'NVIDIA_GeForce_RTX_4090_hf_contextdefault.json'
+    if prior_hf.exists():shutil.copy2(prior_hf,reference/'windows_hf_baseline.json')
+    if (ROOT/'PROVENANCE.json').exists():shutil.copy2(ROOT/'PROVENANCE.json',reference/'windows_environment.json')
     (DEST/'requirements-report.txt').write_text('reportlab==5.1.0\nmarkdown2==2.5.5\nbeautifulsoup4==4.15.0\nmatplotlib==3.11.2\nPillow==13.0.0\ndulwich==1.2.20\n',encoding='utf-8')
     (DEST/'.gitignore').write_text('__pycache__/\n*.pyc\n.venv/\ndata_cache.pt\n*.safetensors\n*.zip\n',encoding='utf-8')
     checkpoint=DEST/'corrected'/'NVIDIA_GeForce_RTX_4090'/'checkpoints'/'hw4_corrected_final'
@@ -133,7 +137,9 @@ The vLLM generator is Qwen/Qwen2.5-7B-Instruct at the pinned revision in the sou
 '''
     (DEST/'README.md').write_text(readme,encoding='utf-8')
     (DEST/'VALIDATION.txt').write_bytes((ROOT/'corrected'/'VALIDATION.txt').read_bytes())
-    files=sorted(p for p in DEST.rglob('*') if p.is_file() and '.git' not in p.relative_to(DEST).parts and p.name!='MANIFEST.json')
+    files=sorted(p for p in DEST.rglob('*') if p.is_file()
+      and not any(part in ('.git','__pycache__','.venv') for part in p.relative_to(DEST).parts)
+      and p.name not in ('MANIFEST.json','data_cache.pt') and p.suffix!='.pyc')
     manifest={p.relative_to(DEST).as_posix():sha(p) for p in files}
     (DEST/'MANIFEST.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8');files.append(DEST/'MANIFEST.json')
     if not (DEST/'.git').exists():porcelain.init(str(DEST))
@@ -149,7 +155,8 @@ The vLLM generator is Qwen/Qwen2.5-7B-Instruct at the pinned revision in the sou
     archive=ROOT.parent/'HW4_5_RTX4090_Submission.zip'
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=1,allowZip64=True) as z:
         for path in DEST.rglob('*'):
-            if path.is_file():z.write(path,arcname='HW4_5_RTX4090_Submission/'+path.relative_to(DEST).as_posix())
+            if path.is_file() and not any(part in ('__pycache__','.venv') for part in path.relative_to(DEST).parts) and path.name!='data_cache.pt' and path.suffix!='.pyc':
+                z.write(path,arcname='HW4_5_RTX4090_Submission/'+path.relative_to(DEST).as_posix())
     shutil.copy2(ROOT/'REPORT.pdf',ROOT.parent/'HW4_5_Report.pdf')
     print(json.dumps({'archive':str(archive),'bytes':archive.stat().st_size,'files':len(files),
        'tag':commit.decode(),'model_included':True,'scope':'single physical RTX 4090; scope exceptions disclosed'},indent=2))

@@ -1,7 +1,7 @@
 
 ==============NVSMI LOG==============
 
-Timestamp                                              : Wed Oct 28 23:16:01 2026
+Timestamp                                              : Thu Oct 29 13:11:53 2026
 Driver Version                                         : 610.60 [Deprecated; will be removed in CUDA 14.0. Use KMD Version instead]
 CUDA Version                                           : 13.3 [Deprecated; will be removed in CUDA 14.0. Use CUDA UMD Version instead]
 KMD Version                                            : 610.60
@@ -87,11 +87,11 @@ GPU 00000000:01:00.0
             Firmware                                   : N/A
         Replays Since Reset                            : 0
         Replay Number Rollovers                        : 0
-        Tx Throughput                                  : 430224 KB/s
-        Rx Throughput                                  : 4282812 KB/s
+        Tx Throughput                                  : 97 KB/s
+        Rx Throughput                                  : 63574 KB/s
         Atomic Caps Outbound                           : N/A
         Atomic Caps Inbound                            : N/A
-    Fan Speed                                          : 31 %
+    Fan Speed                                          : 49 %
     Performance State                                  : P2
     Clocks Event Reasons
         Idle                                           : Not Active
@@ -104,7 +104,7 @@ GPU 00000000:01:00.0
         SW Thermal Slowdown                            : Not Active
         Display Clock Setting                          : Not Active
     Clocks Event Reasons Counters
-        SW Power Capping                               : 336796152 us
+        SW Power Capping                               : 383530120 us
         Sync Boost                                     : 0 us
         SW Thermal Slowdown                            : 0 us
         HW Thermal Slowdown                            : 0 us
@@ -113,8 +113,8 @@ GPU 00000000:01:00.0
     FB Memory Usage
         Total                                          : 24564 MiB
         Reserved                                       : 426 MiB
-        Used                                           : 6390 MiB
-        Free                                           : 17749 MiB
+        Used                                           : 23199 MiB
+        Free                                           : 940 MiB
     BAR1 Memory Usage
         Total                                          : 32768 MiB
         Used                                           : 32739 MiB
@@ -125,8 +125,8 @@ GPU 00000000:01:00.0
         Free                                           : N/A
     Compute Mode                                       : Default
     Utilization
-        GPU                                            : 73 %
-        Memory                                         : 15 %
+        GPU                                            : 97 %
+        Memory                                         : 53 %
         Encoder                                        : 0 %
         Decoder                                        : 0 %
         JPEG                                           : 0 %
@@ -186,8 +186,8 @@ GPU 00000000:01:00.0
             Low                                        : 0 bank(s)
             None                                       : 0 bank(s)
     Temperature
-        GPU Current Temp                               : 65 C
-        GPU Current T.Limit Temp                       : 29 C
+        GPU Current Temp                               : 72 C
+        GPU Current T.Limit Temp                       : 9 C
         GPU Shutdown T.Limit Temp Specification        : -7 C
         GPU Slowdown T.Limit Temp Specification        : -2 C
         GPU Max Operating T.Limit Temp Specification   : 0 C
@@ -195,8 +195,8 @@ GPU 00000000:01:00.0
         Memory Current Temp                            : N/A
         Memory Max Operating T.Limit Temp Specification: N/A
     GPU Power Readings
-        Average Power Draw                             : 361.38 W
-        Instantaneous Power Draw                       : 278.31 W
+        Average Power Draw                             : 397.01 W
+        Instantaneous Power Draw                       : 91.65 W
         GPU Ceiling Power Limit
             Current Power Limit                        : 450.00 W
             Requested Power Limit                      : 450.00 W
@@ -224,10 +224,10 @@ GPU 00000000:01:00.0
         Enforced Profiles                              : N/A
     EDPp Multiplier                                    : N/A
     Clocks
-        Graphics                                       : 2655 MHz
-        SM                                             : 2655 MHz
+        Graphics                                       : 2580 MHz
+        SM                                             : 2580 MHz
         Memory                                         : 10251 MHz
-        Video                                          : 2055 MHz
+        Video                                          : 2010 MHz
     Applications Clocks
         Graphics                                       : Requested functionality has been deprecated
         Memory                                         : Requested functionality has been deprecated
@@ -259,19 +259,7 @@ GPU 00000000:01:00.0
             Access Timeout Recovery                    : N/A
             Incorrect Configuration                    : N/A
             Partition Assigned                         : N/A
-    Processes
-        GPU instance ID                   : N/A
-        Compute instance ID               : N/A
-        Process ID                        : 33
-            Type                          : G
-            Name                          : /Xwayland
-            Used GPU Memory               : Not available in WDDM driver model
-        GPU instance ID                   : N/A
-        Compute instance ID               : N/A
-        Process ID                        : 402
-            Type                          : C
-            Name                          : /python3.12
-            Used GPU Memory               : Not available in WDDM driver model
+    Processes                                          : None
     Capabilities
         EGM                                            : disabled
 

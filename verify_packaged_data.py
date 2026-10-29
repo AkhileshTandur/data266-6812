@@ -8,7 +8,8 @@ import torch
 import corrected_train as training
 
 ROOT=Path(__file__).resolve().parent
-canonical=torch.load(ROOT/'corrected'/'data_cache.pt',weights_only=True)
+canonical=(torch.load(ROOT/'corrected'/'data_cache.pt',weights_only=True)
+           if (ROOT/'corrected'/'data_cache.pt').exists() else training.prepare())
 with tempfile.TemporaryDirectory(prefix='hw45-packaged-data-') as directory:
     staging=Path(directory);out=staging/'corrected';out.mkdir()
     for name in ['selected_rows.csv','data_provenance.json']:

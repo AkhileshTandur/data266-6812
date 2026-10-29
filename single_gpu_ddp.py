@@ -6,6 +6,7 @@ Uses exactly the corrected HW4 data, initialization, optimizer and epoch count.
 """
 import argparse
 import contextlib
+import gc
 import json
 import os
 import socket
@@ -74,6 +75,12 @@ def main():
           'effective_inter_rank_bandwidth_GBps':None,'torch':torch.__version__,'cuda':torch.version.cuda}
         if args.mode=='ddp':
             # Diagnostic is separate from timed full training, at fixed trained weights.
+            # Optimizer states are not used by forward/backward-only diagnostics.
+            # Free them so profiling at the memory wall does not cause WDDM paging.
+            optimizer.zero_grad(set_to_none=True)
+            optimizer.state.clear()
+            del output
+            gc.collect();torch.cuda.empty_cache();torch.cuda.synchronize()
             batch=[x.cuda() for x in next(iter(loader))]
             def step(synchronize_gradients):
                 wrapper.train();optimizer.zero_grad(set_to_none=True)
@@ -101,6 +108,7 @@ def main():
             record['one_rank_allreduce_api_seconds']=(sync_time()-start_collective)/100
             record['allreduce_buffer_bytes']=payload.numel()*payload.element_size()
             record['allreduce_note']='One-rank all_reduce is an API no-op, not a transfer of this buffer. Do not divide buffer size by API latency to invent bandwidth.'
+            record['diagnostic_memory_note']='Optimizer state was freed after measured training/test; paired forward/backward diagnostics do not use optimizer updates.'
         out=ROOT/'corrected'/'single_gpu_ddp';out.mkdir(exist_ok=True)
         (out/f'{args.mode}_batch{args.batch}.json').write_text(json.dumps(record,indent=2))
         (out/'gpu_uuid_capture.txt').write_text(subprocess.check_output(['nvidia-smi','-q'],text=True))

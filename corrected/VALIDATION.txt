@@ -1,5 +1,6 @@
 PASS: consecutive balanced source slice; 3500/750/750 split coverage and exclusivity.
 PASS: 22 complete fine-tunes reconciled against epochs, original labels, predictions and confusion matrices.
 PASS: 7 serving configurations reconciled against per-request latency and output-token counts.
-These integrity checks do not certify the missing second-card, instructor approval, topology or reservation requirements.
+PASS: 9 one-rank plain/DDP records reconciled; timing conditions are labelled in Part C.
+These checks cover numerical integrity; single-GPU scope and administrative-evidence limitations are documented in SCOPE.md.
 PASS: 26 KV context measurements reconciled against prompt lengths, token usage and occupancy fractions.

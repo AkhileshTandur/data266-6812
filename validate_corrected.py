@@ -10,6 +10,8 @@ ROOT=Path(__file__).resolve().parent;OUT=ROOT/'corrected'
 def main():
     metadata=json.loads((OUT/'data_provenance.json').read_text())
     selected=pd.read_csv(OUT/'selected_rows.csv');split=pd.read_csv(OUT/'split_indices.csv')
+    if metadata.get('selected_rows_sha256'):
+        assert hashlib.sha256((OUT/'selected_rows.csv').read_bytes()).hexdigest()==metadata['selected_rows_sha256']
     assert len(selected)==5000
     assert selected.original_row.tolist()==list(range(797500,802500))
     assert selected.label.value_counts().to_dict()=={0:2500,1:2500}
@@ -60,7 +62,22 @@ def main():
                     assert request['usage']['completion_tokens']==64
             kv_count+=1
     text=f'PASS: consecutive balanced source slice; 3500/750/750 split coverage and exclusivity.\nPASS: {len(successful)} complete fine-tunes reconciled against epochs, original labels, predictions and confusion matrices.\nPASS: {serving_count} serving configurations reconciled against per-request latency and output-token counts.\n'
-    text+='These integrity checks do not certify the missing second-card, instructor approval, topology or reservation requirements.\n'
+    ddp_count=0
+    for directory in [OUT/'single_gpu_ddp',*list((OUT/'diagnostics').glob('ddp_*'))]:
+        for path in directory.glob('*.json'):
+            item=json.loads(path.read_text())
+            if item.get('world_size')!=1:continue
+            assert item['physical_gpu_count']==1 and item['inter_rank_bytes_per_step']==0
+            assert item['effective_inter_rank_bandwidth_GBps'] is None
+            assert item['config_sha256']==metadata['config_sha256']
+            assert len(item['epochs'])==3 and len(item['test_predictions'])==750
+            truth=source.loc[split[split.split=='test'].original_row,'label'].tolist()
+            assert item['test_truth']==truth
+            assert np.isclose(np.mean(np.array(truth)==np.array(item['test_predictions'])),item['test_accuracy'])
+            assert np.isclose(10500/sum(r['training_seconds'] for r in item['epochs']),item['throughput'])
+            ddp_count+=1
+    text+=f'PASS: {ddp_count} one-rank plain/DDP records reconciled; timing conditions are labelled in Part C.\n'
+    text+='These checks cover numerical integrity; single-GPU scope and administrative-evidence limitations are documented in SCOPE.md.\n'
     text+=f'PASS: {kv_count} KV context measurements reconciled against prompt lengths, token usage and occupancy fractions.\n'
     (OUT/'VALIDATION.txt').write_text(text,encoding='utf-8');print(text)
 

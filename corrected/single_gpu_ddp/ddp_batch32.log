@@ -1,17 +1,46 @@
-Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 64/199 [00:00<00:00, 621.64it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1016.09it/s]
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  56%|█████▌    | 111/199 [00:00<00:00, 1106.17it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1244.16it/s]
 [transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: bert-base-uncased
 Key                                        | Status     | 
 -------------------------------------------+------------+-
-cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
-cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
-cls.seq_relationship.weight                | UNEXPECTED | 
 cls.predictions.bias                       | UNEXPECTED | 
-cls.seq_relationship.bias                  | UNEXPECTED | 
-cls.predictions.transform.dense.weight     | UNEXPECTED | 
 cls.predictions.transform.dense.bias       | UNEXPECTED | 
-classifier.weight                          | MISSING    | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
 classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
 
 Notes:
 - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
 - MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"epoch": 1, "train_loss": 0.5124468965189798, "val_loss": 0.36863701848189034, "val_accuracy": 0.8386666666666667, "training_seconds": 9.012672778000002, "samples_per_second": 388.3420696847582}
+{"epoch": 2, "train_loss": 0.29512574328695024, "val_loss": 0.3612565293312073, "val_accuracy": 0.844, "training_seconds": 8.461269908999995, "samples_per_second": 413.6494920552241}
+{"epoch": 3, "train_loss": 0.16457623564771243, "val_loss": 0.4607448013971249, "val_accuracy": 0.832, "training_seconds": 8.632129046000003, "samples_per_second": 405.4619644063184}
+{
+  "mode": "ddp",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "world_size": 1,
+  "physical_gpu_count": 1,
+  "topology": "Single-node, single physical GPU, one process/rank",
+  "hostname": "ADS-R15-836-08",
+  "batch": 32,
+  "global_batch": 32,
+  "config_sha256": "c10cdb4dc346cacaac929ab56c21df13bd73160416c18176772c316a08f79596",
+  "throughput": 402.2052841725408,
+  "wall_seconds": 29.147832978999993,
+  "peak_allocated_gib": 4.1365227699279785,
+  "optimizer_steps": 330,
+  "test_loss": 0.4639813293914,
+  "test_accuracy": 0.8373333333333334,
+  "allocator_budget_bytes": 24037556224,
+  "inter_rank_bytes_per_step": 0,
+  "interconnect_used": "None; no remote rank",
+  "effective_inter_rank_bandwidth_GBps": null,
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "one_rank_allreduce_api_seconds": 1.2158960000050457e-05,
+  "allreduce_buffer_bytes": 437935112,
+  "allreduce_note": "One-rank all_reduce is an API no-op, not a transfer of this buffer. Do not divide buffer size by API latency to invent bandwidth."
+}

@@ -62,7 +62,7 @@ def main():
       '## HW4 — Learning curves, class behavior and saved-model inference']
     first_baseline=full[(full.technique=='baseline')&(full.batch==8)].iloc[0]
     h=epochs(first_baseline);folder=Path(first_baseline['_folder']);prefix=first_baseline['_name']
-    report += [f"Corrected HW4 baseline on {first_baseline.gpu}: peak {first_baseline.peak_allocated_gib:.4f} GiB, wall time {first_baseline.wall_seconds:.3f} s, throughput {first_baseline.throughput:.2f} samples/s. These are HW4 measurements used only for this HW4.5 comparison, not an HW5 baseline.",table(h)]
+    report += [f"HW4 reference on {first_baseline.gpu}: final test accuracy **{100*first_baseline.test_accuracy:.2f}%** ({round(750*first_baseline.test_accuracy)}/750), peak {first_baseline.peak_allocated_gib:.4f} GiB, wall time {first_baseline.wall_seconds:.3f} s, throughput {first_baseline.throughput:.2f} samples/s. These are HW4 measurements used only for this HW4.5 comparison, not an HW5 baseline.",table(h)]
     best=int(h.loc[h.val_loss.idxmin(),'epoch']);after=h[h.epoch>best]
     report += [f"Lowest validation loss occurred at epoch {best}; validation loss first stopped improving at epoch {best+1 if best<len(h) else 'not observed within this run'}. Training continued for {len(after)} additional epochs, costing {after.training_seconds.sum():.3f} additional **training-only** seconds, plus validation overhead. Falling training loss with rising validation loss indicates overfitting. Final-epoch test metrics below are reported consistently; the final checkpoint is saved and can be reloaded with `infer.py --model corrected/{folder.name}/checkpoints/hw4_corrected_final`."]
     fig,axes=plt.subplots(1,2,figsize=(10,4))
@@ -177,6 +177,8 @@ def main():
         report += [table(diagnostics),
           'Communication measurement: the diagnostic alternates synchronized DDP and `no_sync()` backward passes for 30 pairs at fixed trained weights, after warmup. Its signed difference includes reducer/bookkeeping and timing noise; a negative value is retained rather than relabelled as a speedup or forced to zero. The separate all-reduce microbenchmark reports API latency only.',
           'Actual inter-rank payload is **0 bytes/step** because no peer exists; effective inter-rank bandwidth is **N/A**, not buffer size divided by a one-rank no-op latency. There is no interconnect transfer to dominate computation. These measurements cannot answer heterogeneous-worker waiting or two-GPU communication efficiency; those original two-card items are explicitly outside this alternative.']
+        if any(r.get('diagnostic_memory_note') for r in ddp_records):
+            report += ['For the memory-wall batch, unused optimizer state was freed after timed training and testing, before the forward/backward-only diagnostic. This avoids WDDM paging during that separate diagnostic; the reported full-training throughput, peak memory, wall time and accuracy were recorded before cleanup. The earlier pressure-affected diagnostic is archived and excluded from this comparison.']
     else:report += ['No completed one-rank verification record is available; no timings are invented.']
     report += ['## Part D — vLLM and HF serving on real hardware']
     serving=[]
@@ -268,7 +270,7 @@ def main():
         elif message.startswith('END '):active=None
     for _,r in records.iterrows():add_hour('Corrected training/probe process',r['_name'],r.get('external_process_seconds',0))
     for directory,label in [(OUT/'single_gpu_ddp','One-GPU plain/DDP process'),
-       (OUT/'diagnostics'/'ddp_contended_attempt','Contended DDP diagnostic process')]:
+       *[(d,'Contended/interrupted DDP diagnostic process') for d in (OUT/'diagnostics').glob('ddp_*')]]:
         for path in directory.glob('*.json'):
             item=json.loads(path.read_text())
             if item.get('world_size')==1 and 'external_process_seconds' in item:

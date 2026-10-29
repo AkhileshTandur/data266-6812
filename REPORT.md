@@ -16,7 +16,7 @@ Training throughput = all training samples across three epochs / sum of synchron
 
 ## HW4 — Learning curves, class behavior and saved-model inference
 
-Corrected HW4 baseline on NVIDIA GeForce RTX 4090: peak 2.0868 GiB, wall time 47.285 s, throughput 237.03 samples/s. These are HW4 measurements used only for this HW4.5 comparison, not an HW5 baseline.
+HW4 reference on NVIDIA GeForce RTX 4090: final test accuracy **84.40%** (633/750), peak 2.0868 GiB, wall time 47.285 s, throughput 237.03 samples/s. These are HW4 measurements used only for this HW4.5 comparison, not an HW5 baseline.
 
 | epoch | train_loss | val_loss | val_accuracy | training_seconds | samples_per_second |
 | --- | --- | --- | --- | --- | --- |
@@ -120,19 +120,23 @@ Topology: **single node, one RTX 4090, one process/rank**, NCCL backend. This fo
 
 | Batch | Plain samples/s | DDP samples/s | One-rank relative efficiency % | DDP peak GiB | Signed sync−no_sync ms | DDP test accuracy |
 | --- | --- | --- | --- | --- | --- | --- |
-| 32 | 172.5826 | 161.9819 | 93.8576 | 4.1365 | 13.0772 | 0.8413 |
+| 32 | 427.9060 | 402.2053 | 93.9938 | 4.1365 | 2.9173 | 0.8373 |
+| 256 | 516.0704 | 511.0544 | 99.0280 | 21.0899 | 2.5268 | 0.8320 |
 
-**Timing condition:** these supplementary DDP runs executed while unrelated GPU jobs were active. They verify the distributed code path but their throughputs are not isolated hardware benchmarks and are not mixed into Parts A/B/D. Raw contention evidence is retained.
+These supplementary comparisons were rerun after unrelated GPU jobs finished. Earlier contended attempts are retained as diagnostics and excluded from this table.
 
 The percentage above is explicitly **one-rank relative efficiency**, T_DDP / (1 × T_plain), not two-GPU scaling efficiency. A two-card study would instead use T_DDP / (2 × T_single). There is no multi-GPU speedup or multi-GPU crossover batch to establish with one rank. The experiment measures framework/reducer overhead without adding physical compute capacity.
 
 | Batch | Sync step ms | No-sync step ms | Signed difference ms | Difference SE ms | One-rank all_reduce API ms |
 | --- | --- | --- | --- | --- | --- |
-| 32 | 174.0130 | 160.9358 | 13.0772 | 2.6679 | 0.0117 |
+| 32 | 67.4807 | 64.5634 | 2.9173 | 0.3223 | 0.0122 |
+| 256 | 470.2881 | 467.7613 | 2.5268 | 0.8795 | 0.0108 |
 
 Communication measurement: the diagnostic alternates synchronized DDP and `no_sync()` backward passes for 30 pairs at fixed trained weights, after warmup. Its signed difference includes reducer/bookkeeping and timing noise; a negative value is retained rather than relabelled as a speedup or forced to zero. The separate all-reduce microbenchmark reports API latency only.
 
 Actual inter-rank payload is **0 bytes/step** because no peer exists; effective inter-rank bandwidth is **N/A**, not buffer size divided by a one-rank no-op latency. There is no interconnect transfer to dominate computation. These measurements cannot answer heterogeneous-worker waiting or two-GPU communication efficiency; those original two-card items are explicitly outside this alternative.
+
+For the memory-wall batch, unused optimizer state was freed after timed training and testing, before the forward/backward-only diagnostic. This avoids WDDM paging during that separate diagnostic; the reported full-training throughput, peak memory, wall time and accuracy were recorded before cleanup. The earlier pressure-affected diagnostic is archived and excluded from this comparison.
 
 ## Part D — vLLM and HF serving on real hardware
 

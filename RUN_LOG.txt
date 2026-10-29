@@ -254,3 +254,19 @@
 2026-10-29T06:15:22.261897+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python single_gpu_ddp.py --mode plain --batch 32
 2026-10-29T06:16:02.749253+00:00 SINGLE_GPU_DDP END plain batch=32 process_seconds=40.481
 2026-10-29T06:16:02.752717+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=1 single_gpu_ddp.py --mode ddp --batch 32
+2026-10-29T06:18:51.328654+00:00 SINGLE_GPU_DDP END ddp batch=32 process_seconds=168.567
+2026-10-29T06:18:51.332557+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python single_gpu_ddp.py --mode plain --batch 256
+2026-10-29T20:02:41.5832401Z Resumed final submission work. GPU idle at 1001 MiB / 3% with no data266-lab2 jobs visible. Previous partial DDP rerun retained in diagnostics/ddp_second_interrupted; rerunning the full plain/DDP pairs under current idle conditions.
+2026-10-29T20:02:46.023450+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python single_gpu_ddp.py --mode plain --batch 32
+2026-10-29T20:03:25.169753+00:00 SINGLE_GPU_DDP END plain batch=32 process_seconds=39.140
+2026-10-29T20:03:25.174686+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=1 single_gpu_ddp.py --mode ddp --batch 32
+2026-10-29T20:04:08.767413+00:00 SINGLE_GPU_DDP END ddp batch=32 process_seconds=43.584
+2026-10-29T20:04:08.772005+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python single_gpu_ddp.py --mode plain --batch 256
+2026-10-29T20:04:40.113504+00:00 SINGLE_GPU_DDP END plain batch=256 process_seconds=31.331
+2026-10-29T20:04:40.116851+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=1 single_gpu_ddp.py --mode ddp --batch 256
+2026-10-29T20:07:59.423845+00:00 SINGLE_GPU_DDP END ddp batch=256 process_seconds=199.300
+2026-10-29T20:09:33.5280672+00:00 DDP batch256 profiling interrupted after completed training; profiling-memory fix applied. Re-running only final DDP batch256; other three fresh records retained.
+2026-10-29T20:10:44.6322599Z Correction: previous DDP batch256 process completed before termination request; captured elapsed=199.300s. Complete original record preserved in diagnostics/ddp_profile_paging. Re-running only DDP batch256 with unused optimizer state freed before diagnostic.
+2026-10-29T20:10:46.739619+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=1 single_gpu_ddp.py --mode ddp --batch 256
+2026-10-29T20:11:55.959231+00:00 SINGLE_GPU_DDP END ddp batch=256 process_seconds=69.213
+2026-10-29T20:12:36.5260144Z FINAL single-GPU submission: completed fresh plain/DDP pairs at batches32/256 after contention ended. Final batch256 diagnostic frees unused optimizer state after timed training, resolving profiling-memory paging; prior diagnostic preserved. Numerical, input and token checks passed. No further training queued.

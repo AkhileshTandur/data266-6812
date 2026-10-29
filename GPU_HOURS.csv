@@ -108,9 +108,15 @@ Corrected training/probe process,combined_batch32_probe,1,8.165649584999983,0.00
 Corrected training/probe process,combined_batch512_probe,1,9.945568545000015,0.0027626579291666706
 Corrected training/probe process,combined_batch64_probe,1,8.044875004999994,0.0022346875013888874
 Corrected training/probe process,combined_batch8,1,86.46370385099999,0.024017695514166663
-One-GPU plain/DDP process,plain_batch32,1,40.481419128999995,0.011244838646944443
-Contended DDP diagnostic process,ddp_batch32,1,97.49964885799999,0.027083235793888886
-Contended DDP diagnostic process,plain_batch32,1,83.92744864100001,0.02331318017805556
+One-GPU plain/DDP process,ddp_batch256,1,69.212532728,0.019225703535555555
+One-GPU plain/DDP process,ddp_batch32,1,43.584194352,0.012106720653333333
+One-GPU plain/DDP process,plain_batch256,1,31.331268699000006,0.008703130194166669
+One-GPU plain/DDP process,plain_batch32,1,39.139582455,0.0108721062375
+Contended/interrupted DDP diagnostic process,ddp_batch32,1,97.49964885799999,0.027083235793888886
+Contended/interrupted DDP diagnostic process,plain_batch32,1,83.92744864100001,0.02331318017805556
+Contended/interrupted DDP diagnostic process,ddp_batch256,1,199.29971569699995,0.055361032138055544
+Contended/interrupted DDP diagnostic process,ddp_batch32,1,168.567348122,0.04682426336722222
+Contended/interrupted DDP diagnostic process,plain_batch32,1,40.481419128999995,0.011244838646944443
 Legacy HF pipeline,HF batch 1,1,62.656456199940294,0.017404571166650083
 Corrected HF pipeline,corrected\serving\hf_baseline_process.json,1,69.27392107200001,0.019242755853333335
 vLLM server window,corrected\serving\server_process.json,1,196.77041779500001,0.0546584493875
