@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/hw45/venv/bin/python",
+    "serving_benchmark.py",
+    "--backend",
+    "vllm",
+    "--output-dir",
+    "/mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving"
+  ],
+  "returncode": 0,
+  "process_seconds": 81.29728204100002
+}

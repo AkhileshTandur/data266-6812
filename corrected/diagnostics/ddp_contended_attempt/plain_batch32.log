@@ -1,0 +1,43 @@
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  47%|████▋     | 94/199 [00:00<00:00, 931.98it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1115.07it/s]
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: bert-base-uncased
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+classifier.weight                          | MISSING    | 
+classifier.bias                            | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"epoch": 1, "train_loss": 0.5124360360758645, "val_loss": 0.36850848921140034, "val_accuracy": 0.8386666666666667, "training_seconds": 20.821419247999998, "samples_per_second": 168.09613015866788}
+{"epoch": 2, "train_loss": 0.29458013214383805, "val_loss": 0.3627021919290225, "val_accuracy": 0.8453333333333334, "training_seconds": 19.990329639000002, "samples_per_second": 175.08465659174013}
+{"epoch": 3, "train_loss": 0.16407104185223578, "val_loss": 0.4419259122709433, "val_accuracy": 0.8493333333333334, "training_seconds": 20.028686346000008, "samples_per_second": 174.74935397842486}
+{
+  "mode": "plain",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "world_size": 1,
+  "physical_gpu_count": 1,
+  "topology": "Single-node, single physical GPU, one process/rank",
+  "hostname": "ADS-R15-836-08",
+  "batch": 32,
+  "global_batch": 32,
+  "config_sha256": "c10cdb4dc346cacaac929ab56c21df13bd73160416c18176772c316a08f79596",
+  "throughput": 172.58259182052618,
+  "wall_seconds": 68.686746519,
+  "peak_allocated_gib": 3.7364754676818848,
+  "optimizer_steps": 330,
+  "test_loss": 0.4563999199171861,
+  "test_accuracy": 0.8293333333333334,
+  "allocator_budget_bytes": 24037556224,
+  "inter_rank_bytes_per_step": 0,
+  "interconnect_used": "None; no remote rank",
+  "effective_inter_rank_bandwidth_GBps": null,
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0"
+}

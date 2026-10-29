@@ -1,0 +1,3 @@
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:  66%|██████▌   | 133/201 [00:00<00:00, 1328.89it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 1403.91it/s]
+{'text': 'I loved the GPU lab today!', 'negative_probability': 0.011018043383955956, 'positive_probability': 0.9889819025993347}
+{'text': 'This was a frustrating day.', 'negative_probability': 0.9987547397613525, 'positive_probability': 0.0012452073860913515}

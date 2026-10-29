@@ -1,0 +1,9 @@
+{
+  "technique": "baseline",
+  "batch": 512,
+  "kind": "uncapped_attempt",
+  "status": "timeout",
+  "external_process_seconds": 302.31543800299994,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "memory_policy": "uncapped WDDM paging attempt"
+}

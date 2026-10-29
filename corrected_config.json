@@ -1,0 +1,14 @@
+{
+  "dataset": "twitter.csv",
+  "slice": 797500,
+  "max_rows": 5000,
+  "seed": 42,
+  "model": "bert-base-uncased",
+  "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+  "max_length": 128,
+  "epochs": 3,
+  "learning_rate": 0.00002,
+  "baseline_batch": 8,
+  "eval_batch": 8,
+  "accumulation_steps": 4
+}

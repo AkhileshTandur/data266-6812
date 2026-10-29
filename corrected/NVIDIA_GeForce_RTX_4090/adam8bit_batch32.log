@@ -1,0 +1,53 @@
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  55%|█████▍    | 109/199 [00:00<00:00, 1085.47it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1317.02it/s]
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: bert-base-uncased
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"epoch": 1, "train_loss": 0.5148748255797795, "val_loss": 0.37840702533721926, "val_accuracy": 0.8306666666666667, "training_seconds": 8.689685291000004, "samples_per_second": 402.77638174365023}
+{"epoch": 2, "train_loss": 0.3039433765751975, "val_loss": 0.36582151559988657, "val_accuracy": 0.8373333333333334, "training_seconds": 8.592550676000002, "samples_per_second": 407.32957325185276}
+{"epoch": 3, "train_loss": 0.18141910997884614, "val_loss": 0.432749530116717, "val_accuracy": 0.84, "training_seconds": 8.292834717000005, "samples_per_second": 422.05109826017986}
+{
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "technique": "adam8bit",
+  "batch": 32,
+  "kind": "full_training",
+  "config_sha256": "c10cdb4dc346cacaac929ab56c21df13bd73160416c18176772c316a08f79596",
+  "allocator_fraction": 0.9332546257658721,
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "seed": 42,
+  "memory_policy": "free resident VRAM minus 64 MiB workspace headroom",
+  "free_vram_before_model_bytes": 24104665088,
+  "total_vram_bytes": 25756696576,
+  "allocator_budget_bytes": 24037556224,
+  "effective_batch": 32,
+  "status": "success",
+  "actual_largest_training_batch": 32,
+  "throughput": 410.5560500588916,
+  "training_seconds": 25.57507068400001,
+  "wall_seconds": 28.507326222000003,
+  "avg_epoch_seconds": 8.525023561333336,
+  "peak_allocated_gib": 3.092039108276367,
+  "training_peak_allocated_gib": 3.092039108276367,
+  "peak_reserved_gib": 3.3046875,
+  "test_loss": 0.4105485108991464,
+  "test_accuracy": 0.8453333333333334,
+  "optimizer_steps": 330,
+  "attempted_steps": 330,
+  "skipped_amp_steps": 0,
+  "best_val_epoch": 2,
+  "optimizer_state_bytes": 223289728,
+  "process_seconds_excluding_import": 31.423706116000005
+}

@@ -1,0 +1,7 @@
+{
+  "profiled_cache_tokens": 129216,
+  "kv_bytes_per_token": 57344,
+  "profiled_kv_payload_capacity_bytes": 7409762304,
+  "block_size_from_log": null,
+  "note": "Payload capacity is derived from the actual profiled GPU token-slot count and this model geometry, not from total nvidia-smi usage."
+}

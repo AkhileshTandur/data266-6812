@@ -1,0 +1,256 @@
+2026-10-29T02:16:56.034540+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 2 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch2.json
+2026-10-29T02:19:49.670606+00:00 END baseline batch=2 status=success elapsed=173.634s
+2026-10-29T02:19:49.673606+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 4 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch4.json
+2026-10-29T02:21:21.428410+00:00 END baseline batch=4 status=success elapsed=91.752s
+2026-10-29T02:21:21.428410+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 8 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch8.json
+2026-10-29T02:22:26.763232+00:00 END baseline batch=8 status=success elapsed=65.331s
+2026-10-29T02:22:26.764231+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 16 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch16.json
+2026-10-29T02:23:15.597540+00:00 END baseline batch=16 status=success elapsed=48.828s
+2026-10-29T02:23:15.598545+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 32 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch32.json
+2026-10-29T02:23:55.072392+00:00 END baseline batch=32 status=success elapsed=39.469s
+2026-10-29T02:23:55.073393+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 64 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch64.json
+2026-10-29T02:24:32.922021+00:00 END baseline batch=64 status=success elapsed=37.845s
+2026-10-29T02:24:32.923021+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 128 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch128.json
+2026-10-29T02:25:09.659461+00:00 END baseline batch=128 status=success elapsed=36.732s
+2026-10-29T02:25:09.660453+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 256 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch256.json
+2026-10-29T02:25:44.094173+00:00 END baseline batch=256 status=success elapsed=34.430s
+2026-10-29T02:25:44.095172+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch512.json
+2026-10-29T02:27:03.2557636Z INTERRUPTED uncapped baseline batch512: no completed epoch; WDDM device memory saturated. Retrying with allocator limit equal to total physical device memory. Not classified as OOM.
+2026-10-29T02:27:07.166122+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch512.json
+2026-10-29T02:29:03.3546616Z INTERRUPTED fraction=1.0 batch512: desktop/context allocations still force WDDM paging before allocator cap. No epoch completed. Reserve 10% for driver/display and retry at fraction=0.9.
+2026-10-29T02:29:14.324307+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech baseline --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\baseline_batch512.json
+2026-10-29T02:29:28.726941+00:00 END baseline batch=512 status=OOM elapsed=14.399s
+2026-10-29T02:29:28.727940+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp --batch 8 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp_batch8.json
+2026-10-29T02:30:34.353789+00:00 END amp batch=8 status=success elapsed=65.624s
+2026-10-29T02:30:34.354788+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp --batch 16 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp_batch16.json
+2026-10-29T02:31:13.989175+00:00 END amp batch=16 status=success elapsed=39.631s
+2026-10-29T02:31:13.990175+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp --batch 32 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp_batch32.json
+2026-10-29T02:31:41.719040+00:00 END amp batch=32 status=success elapsed=27.726s
+2026-10-29T02:31:41.720041+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp --batch 64 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp_batch64.json
+2026-10-29T02:32:06.880156+00:00 END amp batch=64 status=success elapsed=25.154s
+2026-10-29T02:32:06.882158+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp --batch 128 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp_batch128.json
+2026-10-29T02:32:35.925458+00:00 END amp batch=128 status=success elapsed=29.039s
+2026-10-29T02:32:35.926460+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp --batch 256 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp_batch256.json
+2026-10-29T02:33:03.148469+00:00 END amp batch=256 status=success elapsed=27.218s
+2026-10-29T02:33:03.149468+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp_batch512.json
+2026-10-29T02:33:20.634836+00:00 END amp batch=512 status=OOM elapsed=17.480s
+2026-10-29T02:33:20.635837+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 8 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch8.json
+2026-10-29T02:34:46.390853+00:00 END checkpoint batch=8 status=success elapsed=85.753s
+2026-10-29T02:34:46.391854+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 16 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch16.json
+2026-10-29T02:35:46.412125+00:00 END checkpoint batch=16 status=success elapsed=60.017s
+2026-10-29T02:35:46.413125+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 32 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch32.json
+2026-10-29T02:36:35.499462+00:00 END checkpoint batch=32 status=success elapsed=49.081s
+2026-10-29T02:36:35.501463+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 64 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch64.json
+2026-10-29T02:37:25.228596+00:00 END checkpoint batch=64 status=success elapsed=49.723s
+2026-10-29T02:37:25.229598+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 128 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch128.json
+2026-10-29T02:38:17.337172+00:00 END checkpoint batch=128 status=success elapsed=52.104s
+2026-10-29T02:38:17.338173+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 256 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch256.json
+2026-10-29T02:38:59.978428+00:00 END checkpoint batch=256 status=success elapsed=42.637s
+2026-10-29T02:38:59.979426+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch512.json
+2026-10-29T02:39:43.880256+00:00 END checkpoint batch=512 status=success elapsed=43.896s
+2026-10-29T02:39:43.881255+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 1024 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch1024.json
+2026-10-29T02:40:25.986069+00:00 END checkpoint batch=1024 status=success elapsed=42.101s
+2026-10-29T02:40:25.987068+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech checkpoint --batch 2048 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\checkpoint_batch2048.json
+2026-10-29T02:40:41.473721+00:00 END checkpoint batch=2048 status=OOM elapsed=15.483s
+2026-10-29T02:40:41.474722+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech adam8bit --batch 8 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\adam8bit_batch8.json
+2026-10-29T02:41:43.997122+00:00 END adam8bit batch=8 status=success elapsed=62.519s
+2026-10-29T02:41:43.997122+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech adam8bit --batch 16 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\adam8bit_batch16.json
+2026-10-29T02:42:33.049354+00:00 END adam8bit batch=16 status=success elapsed=49.047s
+2026-10-29T02:42:33.050354+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech adam8bit --batch 32 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\adam8bit_batch32.json
+2026-10-29T02:43:13.410798+00:00 END adam8bit batch=32 status=success elapsed=40.358s
+2026-10-29T02:43:13.411798+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech adam8bit --batch 64 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\adam8bit_batch64.json
+2026-10-29T02:43:51.414169+00:00 END adam8bit batch=64 status=success elapsed=37.999s
+2026-10-29T02:43:51.415169+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech adam8bit --batch 128 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\adam8bit_batch128.json
+2026-10-29T02:44:28.179318+00:00 END adam8bit batch=128 status=success elapsed=36.760s
+2026-10-29T02:44:28.180318+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech adam8bit --batch 256 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\adam8bit_batch256.json
+2026-10-29T02:45:04.001457+00:00 END adam8bit batch=256 status=success elapsed=35.818s
+2026-10-29T02:45:04.002457+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech adam8bit --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\adam8bit_batch512.json
+2026-10-29T02:45:18.308630+00:00 END adam8bit batch=512 status=OOM elapsed=14.302s
+2026-10-29T02:45:18.309631+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 8 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch8.json
+2026-10-29T02:46:55.589054+00:00 END best batch=8 status=success elapsed=97.278s
+2026-10-29T02:46:55.590054+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 16 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch16.json
+2026-10-29T02:47:51.180622+00:00 END best batch=16 status=success elapsed=55.588s
+2026-10-29T02:47:51.180622+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 32 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch32.json
+2026-10-29T02:48:27.918688+00:00 END best batch=32 status=success elapsed=36.734s
+2026-10-29T02:48:27.918688+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 64 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch64.json
+2026-10-29T02:48:59.099522+00:00 END best batch=64 status=success elapsed=31.177s
+2026-10-29T02:48:59.100524+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 128 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch128.json
+2026-10-29T02:49:29.032099+00:00 END best batch=128 status=success elapsed=29.927s
+2026-10-29T02:49:29.033100+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 256 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch256.json
+2026-10-29T02:49:58.413677+00:00 END best batch=256 status=success elapsed=29.377s
+2026-10-29T02:49:58.414680+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch512.json
+2026-10-29T02:50:26.255538+00:00 END best batch=512 status=success elapsed=27.838s
+2026-10-29T02:50:26.256538+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 1024 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch1024.json
+2026-10-29T02:50:52.320790+00:00 END best batch=1024 status=success elapsed=26.061s
+2026-10-29T02:50:52.321792+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech best --batch 2048 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\best_batch2048.json
+2026-10-29T02:51:06.678088+00:00 END best batch=2048 status=OOM elapsed=14.354s
+2026-10-29T02:51:06.679089+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp8bit --batch 8 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp8bit_batch8.json
+2026-10-29T02:52:11.733630+00:00 END amp8bit batch=8 status=success elapsed=65.052s
+2026-10-29T02:52:11.734630+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp8bit --batch 16 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp8bit_batch16.json
+2026-10-29T02:52:51.935941+00:00 END amp8bit batch=16 status=success elapsed=40.198s
+2026-10-29T02:52:51.935941+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp8bit --batch 32 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp8bit_batch32.json
+2026-10-29T02:53:20.136186+00:00 END amp8bit batch=32 status=success elapsed=28.196s
+2026-10-29T02:53:20.136186+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp8bit --batch 64 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp8bit_batch64.json
+2026-10-29T02:53:44.822702+00:00 END amp8bit batch=64 status=success elapsed=24.682s
+2026-10-29T02:53:44.822702+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp8bit --batch 128 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp8bit_batch128.json
+2026-10-29T02:54:09.034849+00:00 END amp8bit batch=128 status=success elapsed=24.208s
+2026-10-29T02:54:09.035849+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp8bit --batch 256 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp8bit_batch256.json
+2026-10-29T02:54:33.135405+00:00 END amp8bit batch=256 status=success elapsed=24.096s
+2026-10-29T02:54:33.136407+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech amp8bit --batch 512 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\amp8bit_batch512.json
+2026-10-29T02:54:46.954114+00:00 END amp8bit batch=512 status=OOM elapsed=13.814s
+2026-10-29T02:54:46.954114+00:00 START C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u benchmark.py --tech accumulate --batch 8 --result C:\Users\018206812\Downloads\GPU_HW45\GPU_HW45\results\runs\accumulate_batch8.json
+2026-10-29T02:55:37.181489+00:00 END accumulate batch=8 status=success elapsed=50.224s
+2026-10-29T02:55:39.150983+00:00 SUITE COMPLETE
+2026-10-29T02:55:52.538235+00:00 START local HF pipeline serving baseline: C:\Users\018206812\Downloads\GPU_HW45\gpu-env\Scripts\python.exe -u serving_benchmark.py --backend hf
+2026-10-29T02:56:55.193956+00:00 END HF pipeline baseline returncode=0 process_elapsed=62.656s
+2026-10-29T02:57:55.8906635Z FINAL CHECKS: 43 successful training records reconciled; 6 allocator OOM records; HF baseline 20 requests of 64 tokens verified. HF JSON latency description clarified as local pipeline timing without HTTP; numerical measurements unchanged. Only the task-owned telemetry process was stopped.
+2026-10-29T04:51:27.085224+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 8
+2026-10-29T04:52:23.431863+00:00 CORRECTED END baseline_batch8 status=success process_seconds=56.341
+2026-10-29T04:52:23.435078+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 16
+2026-10-29T04:53:03.713195+00:00 CORRECTED END baseline_batch16 status=success process_seconds=40.272
+2026-10-29T04:53:03.715758+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 32
+2026-10-29T04:53:37.141396+00:00 CORRECTED END baseline_batch32 status=success process_seconds=33.420
+2026-10-29T04:53:37.144317+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 64
+2026-10-29T04:54:08.385529+00:00 CORRECTED END baseline_batch64 status=success process_seconds=31.233
+2026-10-29T04:54:08.388713+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 128
+2026-10-29T04:54:38.516703+00:00 CORRECTED END baseline_batch128 status=success process_seconds=30.121
+2026-10-29T04:54:38.520320+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 256
+2026-10-29T04:55:07.929272+00:00 CORRECTED END baseline_batch256 status=success process_seconds=29.401
+2026-10-29T04:55:07.932809+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 512
+2026-10-29T05:00:10.254806+00:00 CORRECTED END baseline_batch512 status=timeout process_seconds=302.315
+2026-10-29T05:00:10.258134+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 8
+2026-10-29T05:00:59.568028+00:00 CORRECTED END amp_batch8 status=success process_seconds=49.303
+2026-10-29T05:00:59.571224+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 16 --probe
+2026-10-29T05:01:06.593254+00:00 CORRECTED END amp_batch16_probe status=success process_seconds=7.016
+2026-10-29T05:01:06.596522+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 32 --probe
+2026-10-29T05:01:13.566852+00:00 CORRECTED END amp_batch32_probe status=success process_seconds=6.964
+2026-10-29T05:01:13.570124+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 64 --probe
+2026-10-29T05:01:20.619077+00:00 CORRECTED END amp_batch64_probe status=success process_seconds=7.042
+2026-10-29T05:01:20.626698+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 128 --probe
+2026-10-29T05:01:27.904334+00:00 CORRECTED END amp_batch128_probe status=success process_seconds=7.271
+2026-10-29T05:01:27.907681+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 256 --probe
+2026-10-29T05:01:35.656200+00:00 CORRECTED END amp_batch256_probe status=success process_seconds=7.742
+2026-10-29T05:01:35.659430+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 512 --probe
+2026-10-29T05:01:42.734136+00:00 CORRECTED END amp_batch512_probe status=OOM process_seconds=7.068
+2026-10-29T05:01:42.737567+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 256
+2026-10-29T05:02:01.927110+00:00 CORRECTED END amp_batch256 status=success process_seconds=19.183
+2026-10-29T05:02:01.930308+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 8
+2026-10-29T05:03:05.955178+00:00 CORRECTED END checkpoint_batch8 status=success process_seconds=64.012
+2026-10-29T05:03:05.958600+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 16 --probe
+2026-10-29T05:03:12.916106+00:00 CORRECTED END checkpoint_batch16_probe status=success process_seconds=6.951
+2026-10-29T05:03:12.919399+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 32 --probe
+2026-10-29T05:03:19.844085+00:00 CORRECTED END checkpoint_batch32_probe status=success process_seconds=6.912
+2026-10-29T05:03:19.847259+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 64 --probe
+2026-10-29T05:03:27.068402+00:00 CORRECTED END checkpoint_batch64_probe status=success process_seconds=7.215
+2026-10-29T05:03:27.071569+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 128 --probe
+2026-10-29T05:03:34.739289+00:00 CORRECTED END checkpoint_batch128_probe status=success process_seconds=7.661
+2026-10-29T05:03:34.742605+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 256 --probe
+2026-10-29T05:03:43.446895+00:00 CORRECTED END checkpoint_batch256_probe status=success process_seconds=8.692
+2026-10-29T05:03:43.450181+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 512 --probe
+2026-10-29T05:03:54.026528+00:00 CORRECTED END checkpoint_batch512_probe status=success process_seconds=10.567
+2026-10-29T05:03:54.029686+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 1024 --probe
+2026-10-29T05:04:08.366971+00:00 CORRECTED END checkpoint_batch1024_probe status=success process_seconds=14.331
+2026-10-29T05:04:08.370312+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 2048 --probe
+2026-10-29T05:04:16.730453+00:00 CORRECTED END checkpoint_batch2048_probe status=OOM process_seconds=8.350
+2026-10-29T05:04:16.740055+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 1024
+2026-10-29T05:04:52.500524+00:00 CORRECTED END checkpoint_batch1024 status=success process_seconds=35.754
+2026-10-29T05:04:52.503719+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 8
+2026-10-29T05:05:50.944827+00:00 CORRECTED END adam8bit_batch8 status=success process_seconds=58.433
+2026-10-29T05:05:50.948698+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 16 --probe
+2026-10-29T05:05:59.250040+00:00 CORRECTED END adam8bit_batch16_probe status=success process_seconds=8.294
+2026-10-29T05:05:59.253412+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 32 --probe
+2026-10-29T05:06:07.523454+00:00 CORRECTED END adam8bit_batch32_probe status=success process_seconds=8.263
+2026-10-29T05:06:07.526958+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 64 --probe
+2026-10-29T05:06:15.921872+00:00 CORRECTED END adam8bit_batch64_probe status=success process_seconds=8.384
+2026-10-29T05:06:15.925532+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 128 --probe
+2026-10-29T05:06:24.892673+00:00 CORRECTED END adam8bit_batch128_probe status=success process_seconds=8.960
+2026-10-29T05:06:24.896456+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 256 --probe
+2026-10-29T05:06:34.427388+00:00 CORRECTED END adam8bit_batch256_probe status=success process_seconds=9.524
+2026-10-29T05:06:34.430649+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 512 --probe
+2026-10-29T05:06:42.239491+00:00 CORRECTED END adam8bit_batch512_probe status=OOM process_seconds=7.802
+2026-10-29T05:06:42.242833+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 256
+2026-10-29T05:07:13.166176+00:00 CORRECTED END adam8bit_batch256 status=success process_seconds=30.917
+2026-10-29T05:07:13.169608+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 8
+2026-10-29T05:08:10.522448+00:00 CORRECTED END amp8bit_batch8 status=success process_seconds=57.345
+2026-10-29T05:08:10.526159+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 16 --probe
+2026-10-29T05:08:18.457466+00:00 CORRECTED END amp8bit_batch16_probe status=success process_seconds=7.924
+2026-10-29T05:08:18.460801+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 32 --probe
+2026-10-29T05:08:26.432997+00:00 CORRECTED END amp8bit_batch32_probe status=success process_seconds=7.965
+2026-10-29T05:08:26.436570+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 64 --probe
+2026-10-29T05:08:34.606915+00:00 CORRECTED END amp8bit_batch64_probe status=success process_seconds=8.164
+2026-10-29T05:08:34.610173+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 128 --probe
+2026-10-29T05:08:42.768135+00:00 CORRECTED END amp8bit_batch128_probe status=success process_seconds=8.145
+2026-10-29T05:08:42.771489+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 256 --probe
+2026-10-29T05:08:51.394628+00:00 CORRECTED END amp8bit_batch256_probe status=success process_seconds=8.617
+2026-10-29T05:08:51.398040+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 512 --probe
+2026-10-29T05:08:59.152590+00:00 CORRECTED END amp8bit_batch512_probe status=OOM process_seconds=7.748
+2026-10-29T05:08:59.155893+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 256
+2026-10-29T05:09:19.049431+00:00 CORRECTED END amp8bit_batch256 status=success process_seconds=19.887
+2026-10-29T05:09:19.052693+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 8
+2026-10-29T05:10:45.523083+00:00 CORRECTED END combined_batch8 status=success process_seconds=86.464
+2026-10-29T05:10:45.526526+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 16 --probe
+2026-10-29T05:10:53.542639+00:00 CORRECTED END combined_batch16_probe status=success process_seconds=8.009
+2026-10-29T05:10:53.546180+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 32 --probe
+2026-10-29T05:11:01.718795+00:00 CORRECTED END combined_batch32_probe status=success process_seconds=8.166
+2026-10-29T05:11:01.722121+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 64 --probe
+2026-10-29T05:11:09.773978+00:00 CORRECTED END combined_batch64_probe status=success process_seconds=8.045
+2026-10-29T05:11:09.777233+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 128 --probe
+2026-10-29T05:11:18.005715+00:00 CORRECTED END combined_batch128_probe status=success process_seconds=8.222
+2026-10-29T05:11:18.009295+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 256 --probe
+2026-10-29T05:11:26.926261+00:00 CORRECTED END combined_batch256_probe status=success process_seconds=8.909
+2026-10-29T05:11:26.930143+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 512 --probe
+2026-10-29T05:11:36.883412+00:00 CORRECTED END combined_batch512_probe status=success process_seconds=9.946
+2026-10-29T05:11:36.887132+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 1024 --probe
+2026-10-29T05:11:48.455750+00:00 CORRECTED END combined_batch1024_probe status=success process_seconds=11.562
+2026-10-29T05:11:48.459241+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 2048 --probe
+2026-10-29T05:11:59.099102+00:00 CORRECTED END combined_batch2048_probe status=OOM process_seconds=10.633
+2026-10-29T05:11:59.107176+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 1024
+2026-10-29T05:12:21.440683+00:00 CORRECTED END combined_batch1024 status=success process_seconds=22.327
+2026-10-29T05:12:21.444120+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech accumulate --batch 8
+2026-10-29T05:13:08.042764+00:00 CORRECTED END accumulate_batch8 status=success process_seconds=46.592
+2026-10-29T05:13:08.045143+00:00 CORRECTED TRAINING SUITE COMPLETE
+2026-10-29T05:14:51.079633+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech baseline --batch 512
+2026-10-29T05:15:01.446860+00:00 CORRECTED END baseline_batch512 status=OOM process_seconds=10.361
+2026-10-29T05:15:01.450412+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp --batch 32
+2026-10-29T05:15:24.773262+00:00 CORRECTED END amp_batch32 status=success process_seconds=23.316
+2026-10-29T05:15:24.776642+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech checkpoint --batch 32
+2026-10-29T05:16:06.059205+00:00 CORRECTED END checkpoint_batch32 status=success process_seconds=41.276
+2026-10-29T05:16:06.063737+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech adam8bit --batch 32
+2026-10-29T05:16:42.459014+00:00 CORRECTED END adam8bit_batch32 status=success process_seconds=36.388
+2026-10-29T05:16:42.462254+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech amp8bit --batch 32
+2026-10-29T05:17:07.052804+00:00 CORRECTED END amp8bit_batch32 status=success process_seconds=24.584
+2026-10-29T05:17:07.056173+00:00 CORRECTED START /opt/hw45/venv/bin/python -u corrected_train.py --tech combined --batch 32
+2026-10-29T05:17:35.442824+00:00 CORRECTED END combined_batch32 status=success process_seconds=28.379
+2026-10-29T05:17:35.445671+00:00 CORRECTED CONTROLLED-BATCH FOLLOWUP COMPLETE
+2026-10-29T05:17:44.294097+00:00 SERVING START /opt/hw45/venv/bin/python serving_benchmark.py --backend hf --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving
+2026-10-29T05:18:53.573685+00:00 SERVING END hf_baseline returncode=0 process_seconds=69.274
+2026-10-29T05:18:53.579216+00:00 VLLM SERVER START /opt/hw45/venv/bin/vllm serve Qwen/Qwen2.5-7B-Instruct --revision a09a35458c702b33eeacc393d103063234e8bc28 --host 127.0.0.1 --port 8000 --dtype half --seed 42 --gpu-memory-utilization 0.9 --max-model-len 16384 --max-num-seqs 32 --max-num-batched-tokens 2048 --enable-chunked-prefill --no-enable-prefix-caching --enforce-eager --attention-backend FLASH_ATTN --no-enable-log-requests --block-size 16
+2026-10-29T05:19:55.645143+00:00 VLLM SERVER STOP elapsed_seconds=62.058
+2026-10-29T05:21:47.300837+00:00 VLLM SERVER START /opt/hw45/venv/bin/vllm serve Qwen/Qwen2.5-7B-Instruct --revision a09a35458c702b33eeacc393d103063234e8bc28 --host 127.0.0.1 --port 8000 --dtype half --seed 42 --gpu-memory-utilization 0.9 --max-model-len 16384 --max-num-seqs 32 --max-num-batched-tokens 2048 --enable-chunked-prefill --no-enable-prefix-caching --enforce-eager --attention-backend FLASH_ATTN --no-enable-log-requests --block-size 16
+2026-10-29T05:22:42.354075+00:00 SERVING START /opt/hw45/venv/bin/python serving_benchmark.py --backend vllm --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving
+2026-10-29T05:24:03.656902+00:00 SERVING END vllm_throughput returncode=0 process_seconds=81.297
+2026-10-29T05:24:03.666995+00:00 SERVING START /opt/hw45/venv/bin/python kv_context_sweep.py --revision a09a35458c702b33eeacc393d103063234e8bc28 --cache-capacity-bytes 7409762304 --contexts 256 512 1024 2048 4096 5120 6144 7168 8192 12288 --output-tokens 64 --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving
+2026-10-29T05:25:03.394753+00:00 SERVING END kv_contexts returncode=0 process_seconds=59.721
+2026-10-29T05:25:04.078433+00:00 VLLM SERVER STOP elapsed_seconds=196.770
+2026-10-29T05:27:49.389020+00:00 VLLM SERVER START /opt/hw45/venv/bin/vllm serve Qwen/Qwen2.5-7B-Instruct --revision a09a35458c702b33eeacc393d103063234e8bc28 --host 127.0.0.1 --port 8000 --dtype half --seed 42 --gpu-memory-utilization 0.9 --max-model-len 16384 --max-num-seqs 32 --max-num-batched-tokens 2048 --enable-chunked-prefill --no-enable-prefix-caching --enforce-eager --attention-backend FLASH_ATTN --no-enable-log-requests --block-size 16
+2026-10-29T05:28:44.439886+00:00 SERVING START /opt/hw45/venv/bin/python serving_benchmark.py --backend vllm --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving/revisit
+2026-10-29T05:30:05.326457+00:00 SERVING END vllm_revisit returncode=0 process_seconds=80.881
+2026-10-29T05:30:05.337186+00:00 SERVING START /opt/hw45/venv/bin/python kv_context_sweep.py --revision a09a35458c702b33eeacc393d103063234e8bc28 --cache-capacity-bytes 7409762304 --contexts 256 512 1024 2048 4096 8192 12288 14336 15360 16000 16128 16256 16320 --output-tokens 64 --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving/revisit/kv
+2026-10-29T05:32:27.530374+00:00 SERVING END kv_contexts returncode=0 process_seconds=142.185
+2026-10-29T05:32:27.871709+00:00 SERVING START /opt/hw45/venv/bin/python kv_context_sweep.py --revision a09a35458c702b33eeacc393d103063234e8bc28 --cache-capacity-bytes 7409762304 --contexts 16064 --output-tokens 64 --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving/revisit/kv
+2026-10-29T05:32:49.776867+00:00 SERVING END kv_refine_16064 returncode=0 process_seconds=21.896
+2026-10-29T05:32:49.797818+00:00 SERVING START /opt/hw45/venv/bin/python kv_context_sweep.py --revision a09a35458c702b33eeacc393d103063234e8bc28 --cache-capacity-bytes 7409762304 --contexts 16096 --output-tokens 64 --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving/revisit/kv
+2026-10-29T05:33:11.856544+00:00 SERVING END kv_refine_16096 returncode=0 process_seconds=22.051
+2026-10-29T05:33:11.877203+00:00 SERVING START /opt/hw45/venv/bin/python kv_context_sweep.py --revision a09a35458c702b33eeacc393d103063234e8bc28 --cache-capacity-bytes 7409762304 --contexts 16112 --output-tokens 64 --output-dir /mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving/revisit/kv
+2026-10-29T05:33:36.045118+00:00 SERVING END kv_refine_16112 returncode=0 process_seconds=24.162
+2026-10-29T05:33:36.894262+00:00 VLLM SERVER STOP elapsed_seconds=347.500
+2026-10-29T05:41:28.4433197Z CORRECTED FINAL VALIDATION: 22 complete fine-tunes, 7 serving configurations, 26 KV context measurements reconciled. Batch-8 corrected HW4 test accuracy 0.844. KV eight-active/no-preemption boundary 16096 prompt tokens; next tested 16112 preempts. Task-owned vLLM servers stopped. RTX 5090, assigned Part C topology/approval, and reservation evidence remain unavailable.
+2026-10-29T05:50:36.065786+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python single_gpu_ddp.py --mode plain --batch 32
+2026-10-29T05:52:00.002264+00:00 SINGLE_GPU_DDP END plain batch=32 process_seconds=83.927
+2026-10-29T05:52:00.007087+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=1 single_gpu_ddp.py --mode ddp --batch 32
+2026-10-29T05:53:37.516087+00:00 SINGLE_GPU_DDP END ddp batch=32 process_seconds=97.500
+2026-10-29T05:53:37.520492+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python single_gpu_ddp.py --mode plain --batch 256
+2026-10-29T05:53:55.8904481Z SINGLE_GPU_DDP attempt paused: unrelated Windows data266-lab2 processes 84980 and 110836 using GPU. Only task-owned Linux processes 412,511,549 were stopped. Contended outputs preserved under corrected/diagnostics/ddp_contended_attempt; excluded from timing comparisons.
+2026-10-29T06:15:22.261897+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python single_gpu_ddp.py --mode plain --batch 32
+2026-10-29T06:16:02.749253+00:00 SINGLE_GPU_DDP END plain batch=32 process_seconds=40.481
+2026-10-29T06:16:02.752717+00:00 SINGLE_GPU_DDP START /opt/hw45/venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=1 single_gpu_ddp.py --mode ddp --batch 32

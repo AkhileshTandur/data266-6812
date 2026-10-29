@@ -1,0 +1,143 @@
+[
+  {
+    "backend": "hf",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "requested_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "prompt_text": "Explain in three sentences how gradient checkpointing changes GPU training memory and computation.",
+    "formatted_input": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nExplain in three sentences how gradient checkpointing changes GPU training memory and computation.<|im_end|>\n<|im_start|>assistant\n",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "dtype": "float16",
+    "batch": 1,
+    "prompt_tokens": 45,
+    "requested_output_tokens": 64,
+    "requests": [
+      {
+        "latency_ms": 1404.3334750000156,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 0
+      },
+      {
+        "latency_ms": 1379.6830400000033,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 1
+      },
+      {
+        "latency_ms": 1424.1883980000125,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 2
+      },
+      {
+        "latency_ms": 1419.9488079999867,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 3
+      },
+      {
+        "latency_ms": 1432.2233919999974,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 4
+      },
+      {
+        "latency_ms": 1422.949611000007,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 5
+      },
+      {
+        "latency_ms": 1408.1036060000258,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 6
+      },
+      {
+        "latency_ms": 1413.2739329999993,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 7
+      },
+      {
+        "latency_ms": 1416.1267709999947,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 8
+      },
+      {
+        "latency_ms": 1388.3074310000154,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 9
+      },
+      {
+        "latency_ms": 1363.4367999999881,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 10
+      },
+      {
+        "latency_ms": 1340.7962359999885,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 11
+      },
+      {
+        "latency_ms": 1334.4186869999817,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 12
+      },
+      {
+        "latency_ms": 1336.5284459999884,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 13
+      },
+      {
+        "latency_ms": 1356.1147939999785,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 14
+      },
+      {
+        "latency_ms": 1353.263279999993,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 15
+      },
+      {
+        "latency_ms": 1335.000481999998,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 16
+      },
+      {
+        "latency_ms": 1330.1602209999999,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 17
+      },
+      {
+        "latency_ms": 1342.8134630000272,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 18
+      },
+      {
+        "latency_ms": 1361.4558390000013,
+        "output_tokens": 64,
+        "generated_text": "Gradient checkpointing allows models to be trained with limited GPU memory by storing only the necessary intermediate activations during the forward pass and recomputing others during the backward pass, thus reducing memory usage. This technique incurs additional computational overhead due to the need to recompute some activations, but it enables the training of larger models or",
+        "repeat": 19
+      }
+    ],
+    "total_output_tokens": 1280,
+    "elapsed_seconds": 27.566558451999924,
+    "tokens_per_second": 46.43307223964105,
+    "p50_ms": 1371.5599199999956,
+    "p95_ms": 1424.5901477000118,
+    "latency_definition": "Local HF pipeline call plus output decoding/counting; CUDA synchronized; no HTTP",
+    "cache_note": "Disable prefix caching on the server for these repeated prompts; record server flags."
+  }
+]

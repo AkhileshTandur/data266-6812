@@ -1,0 +1,6 @@
+reportlab==5.1.0
+markdown2==2.5.5
+beautifulsoup4==4.15.0
+matplotlib==3.11.2
+Pillow==13.0.0
+dulwich==1.2.20

@@ -1,0 +1,10 @@
+{
+  "batch": 8,
+  "longest_tested_no_preemption_prompt_tokens": 12288,
+  "next_tested_failed_resident_prompt_tokens": null,
+  "resolution_tokens": null,
+  "output_tokens": 64,
+  "engine_context_limit": 16384,
+  "architectural_context_limit": 32768,
+  "criterion": "All eight requests succeed, observed active requests >=8, zero new preemptions. Paging/scheduler behavior is reported rather than relabeled CUDA OOM."
+}

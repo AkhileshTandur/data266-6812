@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/opt/hw45/venv/bin/python",
+    "kv_context_sweep.py",
+    "--revision",
+    "a09a35458c702b33eeacc393d103063234e8bc28",
+    "--cache-capacity-bytes",
+    "7409762304",
+    "--contexts",
+    "16096",
+    "--output-tokens",
+    "64",
+    "--output-dir",
+    "/mnt/c/Users/018206812/Downloads/GPU_HW45/GPU_HW45/corrected/serving/revisit/kv"
+  ],
+  "returncode": 0,
+  "process_seconds": 22.050836875000016
+}

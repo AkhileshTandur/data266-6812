@@ -1,0 +1,22 @@
+{
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "technique": "combined",
+  "batch": 512,
+  "kind": "capacity_probe",
+  "config_sha256": "c10cdb4dc346cacaac929ab56c21df13bd73160416c18176772c316a08f79596",
+  "allocator_fraction": 0.9332546257658721,
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "seed": 42,
+  "memory_policy": "free resident VRAM minus 64 MiB workspace headroom",
+  "free_vram_before_model_bytes": 24104665088,
+  "total_vram_bytes": 25756696576,
+  "allocator_budget_bytes": 24037556224,
+  "effective_batch": 512,
+  "status": "success",
+  "probe_seconds": 2.1818118699998195,
+  "peak_allocated_gib": 5.789985656738281,
+  "peak_reserved_gib": 6.203125,
+  "process_seconds_excluding_import": 4.853600328000084,
+  "external_process_seconds": 9.945568545000015
+}

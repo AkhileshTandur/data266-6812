@@ -1,0 +1,11 @@
+{
+  "full_source_present": false,
+  "selected_rows": 5000,
+  "input_ids_identical": true,
+  "attention_masks_identical": true,
+  "labels_identical": true,
+  "split_indices_identical": true,
+  "changed_csv_rejected": true,
+  "config_sha256": "c10cdb4dc346cacaac929ab56c21df13bd73160416c18176772c316a08f79596",
+  "torch": "2.13.0+cu130"
+}
